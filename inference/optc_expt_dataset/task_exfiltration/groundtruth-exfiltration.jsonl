@@ -1,0 +1,2 @@
+{"exfiltration-scenario2": [{"timestamp": ["2019-09-24 13:43:11"], "exfiltrated data": ["\\Device\\HarddiskVolume1\\Users\\sysadmin\\Downloads\\export.zip", "export.zip"], "full file paths": []}]}
+{"exfiltration-scenario3": [{"timestamp": ["2019-09-24 15:03:21", "2019-09-24 15:03:25", "2019-09-24 15:03:30", "2019-09-24 15:03:35", "2019-09-24 15:03:40", "2019-09-24 15:03:44", "2019-09-24 15:03:49", "2019-09-24 15:03:54"], "exfiltrated data": ["\\Device\\HarddiskVolume1\\Users\\sysadmin\\Downloads\\allgone.zip", "allgone.zip"], "full file paths": []}]}

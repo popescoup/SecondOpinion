@@ -1,0 +1,434 @@
+
+
+****Starting line num: 1. Num lines: 400. 2024-11-27 14:04:44-to-2024-11-27 14:05:04****
+
+As a highly-skilled computer security expert with decades of experience in forensic system logs analysis, I have reviewed the provided Windows audit system logs to identify potential lateral movement activities.
+
+Lateral movement, in this context, refers to techniques allowing a user to establish successful outgoing connections to external machines to gain control of remote systems. This typically involves connections to other internal systems or external attacker-controlled infrastructure.
+
+My analysis focused on log entries indicating outgoing network connections (`TCP Connect` or `UDP Send` operations) initiated by processes to external hosts. I then assessed the legitimacy of these connections based on the initiating process, the user context, and the destination host/port.
+
+**Summary of Findings:**
+
+The logs show numerous outgoing network connections. However, all identified connections originate from either `chrome.exe` processes or `svchost.exe` processes.
+
+*   **`chrome.exe` connections:** These connections are made by various Chrome sub-processes (e.g., `gpu-process`, `network.mojom.NetworkService`, `renderer`) to `zdns2.uchicago.edu` (a DNS server) and various `1e100.net` domains (which belong to Google). The operations are primarily `UDP Send` (for DNS lookups) and `TCP Connect` or `UDP Send` on `https` (port 443). This behavior is entirely consistent with the normal operation of a web browser, which frequently performs DNS queries and connects to content delivery networks, update servers, and other Google services.
+*   **`svchost.exe` connections:** These connections are made by `svchost.exe` running under the `NT AUTHORITY\NETWORK SERVICE` account to `zdns2.uchicago.edu` on the `domain` port (53). This is standard behavior for a Windows service host process performing DNS resolution for system services.
+
+**Conclusion:**
+
+While all identified activities involve outgoing connections to external hosts, they are all attributable to legitimate system processes (`svchost.exe`) or common user applications (`chrome.exe`) performing routine, expected network communications. The destination hosts (Google infrastructure, university DNS server) and ports (DNS, HTTPS) are also typical for these processes. There is no evidence to suggest these connections are being used to "enter and control" remote systems in a malicious lateral movement context. Therefore, all identified activities are assessed as `LOW_SUSPICIOUS`.
+
+```json
+[
+  {
+    "key log line": "(11/27/2024 2:04:59 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e184]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [37bbdd9ca5299250142b3d8f03d56b85]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '61039'}",
+    "timestamp": "11/27/2024 2:04:59 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:04:59 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e185]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [7391e98ec729e33280c6b59c635276bb]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '61743'}",
+    "timestamp": "11/27/2024 2:04:59 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:04:59 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e192]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [4775efc4669c67c3f929f7ce995c7c66]{'type': 'network', 'remote host': 'ord37s34-in-f4.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51294'}",
+    "timestamp": "11/27/2024 2:04:59 PM",
+    "external host": "ord37s34-in-f4.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'ord37s34-in-f4.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:04:59 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e418]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [fe7a4fc813db1fa4e55623a1709b6637]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '62339'}",
+    "timestamp": "11/27/2024 2:04:59 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:04:59 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e419]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [8b356e20c8d865ae61838e1fcc078831]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '55143'}",
+    "timestamp": "11/27/2024 2:04:59 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:04:59 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e429]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [47f56abb5bedc66b48a90dbe963d9052]{'type': 'network', 'remote host': 'ord37s36-in-f10.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '52813'}",
+    "timestamp": "11/27/2024 2:04:59 PM",
+    "external host": "ord37s36-in-f10.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'ord37s36-in-f10.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:00 PM) [f4534aff0f2739b4173ac9ae021862eb]{'type': 'process', 'pid': '1960', 'commandline': 'C:\\\\windows\\\\system32\\\\svchost.exe -k NetworkService -p', 'imagepath': 'C:\\\\windows\\\\system32\\\\svchost.exe'}  -->  [e574]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [6604fff49d4b48f65132ab23c9909b0e]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '59544'}",
+    "timestamp": "11/27/2024 2:05:00 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 1960,
+    "username": "NT AUTHORITY\\NETWORK SERVICE",
+    "evidence for": "Process 'C:\\\\windows\\\\system32\\\\svchost.exe' (PID: 1960) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "svchost.exe is a legitimate Windows service host process. When running under the 'NT AUTHORITY\\\\NETWORK SERVICE' account, it often performs network-related tasks, including DNS lookups (port 'domain' or 53) to resolve hostnames for other services. 'zdns2.uchicago.edu' appears to be a legitimate DNS server.",
+    "deliberation": "This is a standard system process performing a routine DNS lookup. There is no indication of malicious activity.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:00 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e881]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [a996a2cca3ad4aae8815bbaa0f1ad5c3]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '63630'}",
+    "timestamp": "11/27/2024 2:05:00 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:00 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e882]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [f114015c0e21935289330e18a529ac74]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '62547'}",
+    "timestamp": "11/27/2024 2:05:00 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:00 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e885]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [9e064e4c9ab2bbadd4dc1053a3eb6d7c]{'type': 'network', 'remote host': 'ord38s31-in-f14.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '56639'}",
+    "timestamp": "11/27/2024 2:05:00 PM",
+    "external host": "ord38s31-in-f14.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'ord38s31-in-f14.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:01 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e916]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [4775efc4669c67c3f929f7ce995c7c66]{'type': 'network', 'remote host': 'ord37s34-in-f4.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51294'}",
+    "timestamp": "11/27/2024 2:05:01 PM",
+    "external host": "ord37s34-in-f4.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'ord37s34-in-f4.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:01 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e936]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [f8c3f3bcf251b5c9e1c1bfd36608450c]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '64675'}",
+    "timestamp": "11/27/2024 2:05:01 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:01 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e937]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [b5c6c872f5597fe73d86dd2b9e2c5c06]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '49349'}",
+    "timestamp": "11/27/2024 2:05:01 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:01 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e949]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [4b6387206d428ccf0dd32dff5935405b]{'type': 'network', 'remote host': 'lga15s46-in-f46.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51262'}",
+    "timestamp": "11/27/2024 2:05:01 PM",
+    "external host": "lga15s46-in-f46.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'lga15s46-in-f46.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:01 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e950]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [99a0501fdcc00bd9fe26432e91f8b909]{'type': 'network', 'remote host': 'lga15s46-in-f46.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51261'}",
+    "timestamp": "11/27/2024 2:05:01 PM",
+    "external host": "lga15s46-in-f46.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'lga15s46-in-f46.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:01 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e951]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [c945a93ac94e308c5780f916a902aff8]{'type': 'network', 'remote host': 'lga15s46-in-f46.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51260'}",
+    "timestamp": "11/27/2024 2:05:01 PM",
+    "external host": "lga15s46-in-f46.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'lga15s46-in-f46.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:01 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1112]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [d9dfa550116be27509c2b4549aed5c7c]{'type': 'network', 'remote host': 'lga15s46-in-f46.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '53165'}",
+    "timestamp": "11/27/2024 2:05:01 PM",
+    "external host": "lga15s46-in-f46.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'lga15s46-in-f46.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:02 PM) [f4534aff0f2739b4173ac9ae021862eb]{'type': 'process', 'pid': '1960', 'commandline': 'C:\\\\windows\\\\system32\\\\svchost.exe -k NetworkService -p', 'imagepath': 'C:\\\\windows\\\\system32\\\\svchost.exe'}  -->  [e1151]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [6604fff49d4b48f65132ab23c9909b0e]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '59544'}",
+    "timestamp": "11/27/2024 2:05:02 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 1960,
+    "username": "NT AUTHORITY\\NETWORK SERVICE",
+    "evidence for": "Process 'C:\\\\windows\\\\system32\\\\svchost.exe' (PID: 1960) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "svchost.exe is a legitimate Windows service host process. When running under the 'NT AUTHORITY\\\\NETWORK SERVICE' account, it often performs network-related tasks, including DNS lookups (port 'domain' or 53) to resolve hostnames for other services. 'zdns2.uchicago.edu' appears to be a legitimate DNS server.",
+    "deliberation": "This is a standard system process performing a routine DNS lookup. There is no indication of malicious activity.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1196]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [433a1f1bbf9f414ba86d63a3a6e1c05d]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '50276'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1197]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [1ce915813e93b4d579c17ccf36b1992f]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '54285'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1204]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [5de0360f08dc2107bf4e9d246f50cba5]{'type': 'network', 'remote host': 'mia09s16-in-f14.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51263'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "mia09s16-in-f14.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'mia09s16-in-f14.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1205]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [7c0dd4dab0b63d52f6d730254fb67856]{'type': 'network', 'remote host': 'mia09s16-in-f14.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51264'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "mia09s16-in-f14.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'mia09s16-in-f14.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1376]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [0195c6d4bc77a01f5f9be6d323accd62]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '52641'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1377]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [afc7d2d3d8a7eae37604ee689b7c8970]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '49293'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1400]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [c7039954320b80f623ca742ef8666b41]{'type': 'network', 'remote host': 'mia09s16-in-f14.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '50584'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "mia09s16-in-f14.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'mia09s16-in-f14.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1440]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [d80737a83f71efe05427fe84f084d9af]{'type': 'network', 'remote host': 'lga15s49-in-f22.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51265'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "lga15s49-in-f22.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'lga15s49-in-f22.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1457]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [89dbd409ef62f704e4b36414ec6ad52c]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '57456'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1460]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [b63eff543b1847ff4bac0892c925d8fa]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '50159'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1565]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [72781ec92987f24ca965a9753fc4cbb4]{'type': 'network', 'remote host': 'ord38s32-in-f10.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51266'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "ord38s32-in-f10.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'ord38s32-in-f10.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1917]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [fd025a59125ee99b25046e93705bae00]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '54360'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e1918]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [3970b62dfe0053234b73e3be65511382]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '58440'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e2029]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [4a0702d1943d076b1014378871d9bc6d]{'type': 'network', 'remote host': 'atl14s78-in-f3.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '55914'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "atl14s78-in-f3.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'atl14s78-in-f3.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [f4534aff0f2739b4173ac9ae021862eb]{'type': 'process', 'pid': '1960', 'commandline': 'C:\\\\windows\\\\system32\\\\svchost.exe -k NetworkService -p', 'imagepath': 'C:\\\\windows\\\\system32\\\\svchost.exe'}  -->  [e2289]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [6604fff49d4b48f65132ab23c9909b0e]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '59544'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 1960,
+    "username": "NT AUTHORITY\\NETWORK SERVICE",
+    "evidence for": "Process 'C:\\\\windows\\\\system32\\\\svchost.exe' (PID: 1960) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "svchost.exe is a legitimate Windows service host process. When running under the 'NT AUTHORITY\\\\NETWORK SERVICE' account, it often performs network-related tasks, including DNS lookups (port 'domain' or 53) to resolve hostnames for other services. 'zdns2.uchicago.edu' appears to be a legitimate DNS server.",
+    "deliberation": "This is a standard system process performing a routine DNS lookup. There is no indication of malicious activity.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e2302]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [9e10a582faa2ddcd60d4946a9f742bab]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '61806'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e2303]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [23e6b92ab715e2310dad4d3babd4ba51]{'type': 'network', 'remote host': 'zdns2.uchicago.edu', 'remote port': 'domain', 'local host': 'localhost', 'local port': '59956'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "zdns2.uchicago.edu",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'zdns2.uchicago.edu' on port 'domain'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts (e.g., Google services for updates, sync, or content delivery, and DNS servers like zdns2.uchicago.edu for name resolution). This is expected behavior for a browser. The connection is a UDP DNS query to a university DNS server.",
+    "deliberation": "The connection is made by a Chrome process to a legitimate DNS server. This is standard web browsing and DNS resolution activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e2336]{'type': 'WasGeneratedBy', 'operation': 'TCP Connect'}  -->  [99c2e56a83940b99e7f5efa8fbb4adac]{'type': 'network', 'remote host': 'bi-in-f84.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '51267'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "bi-in-f84.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing TCP Connect connection to external host 'bi-in-f84.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  },
+  {
+    "key log line": "(11/27/2024 2:05:03 PM) [76f508bf126c670997e1e974f6439f57]{'type': 'process', 'pid': '21912', 'commandline': '\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --string-annotations=is-enterprise-managed=no --field-trial-handle=1988,i,15207279035523514435,15815658221908413750,262144 --variations-seed-version=20241121-182614.093000 --mojo-platform-channel-handle=2284 /prefetch:3', 'imagepath': 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'}  -->  [e2400]{'type': 'WasGeneratedBy', 'operation': 'UDP Send'}  -->  [a3cea40bf08748dcffaab680248d717b]{'type': 'network', 'remote host': 'bi-in-f84.1e100.net', 'remote port': 'https', 'local host': 'localhost', 'local port': '49858'}",
+    "timestamp": "11/27/2024 2:05:03 PM",
+    "external host": "bi-in-f84.1e100.net",
+    "pid": 21912,
+    "username": "LAPTOP-GQPFMKE0\\bob",
+    "evidence for": "Process 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe' (PID: 21912) initiated an outgoing UDP Send connection to external host 'bi-in-f84.1e100.net' on port 'https'.",
+    "evidence against": "Google Chrome is a web browser and routinely makes outgoing connections to various external hosts, especially Google's own infrastructure (1e100.net) for services like content delivery, updates, or telemetry. This is expected behavior for a browser.",
+    "deliberation": "The connection is made by a Chrome process to a Google domain over HTTPS. This is standard web browsing activity. While any network connection *could* be abused, this specific destination and the process context make it highly unlikely to be malicious lateral movement.",
+    "verdict": "LOW_SUSPICIOUS"
+  }
+]
+```
+
+-----------------------gemini------------------------

@@ -1,0 +1,6 @@
+{"lm-scenario1": [{"timestamp": ["2025-01-13 02:02:03"], "external host": ["158.69.251.105", "shell.xshellz.com"], "username": ["alice", "INSTANCE-202406\\\\alice"], "method": ["SSH"]}]}
+{"lm-scenario2": [{"timestamp": ["2024-11-27 14:06:32"], "external host": ["34.46.106.76", "76.106.46.34.bc.googleusercontent.com"], "username": ["bob", "LAPTOP-GQPFMKE0\\\\bob"], "method": ["RDP"]}]}
+{"lm-scenario3": [{"timestamp": ["2024-11-27 15:08:37"], "external host": ["no value"], "username": ["bob", "LAPTOP-GQPFMKE0\\\\bob"], "method": ["creation of file in removable drive"]}]}
+{"lm-scenario4": [{"timestamp": ["2024-11-27 16:01:56", "2024-11-27 16:02:08", "2024-11-27 16:02:47", "2024-11-27 16:02:48"], "external host": ["34.46.106.76", "76.106.46.34.bc.googleusercontent.com"], "username": ["bob", "LAPTOP-GQPFMKE0\\\\bob"], "method": ["Radmin"]}]}
+{"lm-scenario5": [{"timestamp": ["2025-01-13 12:23:53"], "external host": ["34.122.174.237", "no value"], "username": ["bob", "INSTANCE-202406\\\\bob"], "method": ["PsExec"]}]}
+{"lm-scenario7": [{"timestamp": ["2025-06-05 09:19:40"], "external host": ["34.57.165.193"], "username": ["alice", "INSTANCE-202406\\\\alice"], "method": ["SSH"]}]}

@@ -1,0 +1,59 @@
+
+
+****Starting line num: 1. Num lines: 400. 2019-09-24 11:09:18-to-2019-09-24 11:09:27****
+
+To analyze the given Windows audit system logs for potential attack activity, we need to examine the provided log data closely. The logs are in a specific format representing an information flow graph, where each line describes an action between two nodes (process, file, or network socket).
+
+### Initial Observations
+
+1. **Log Data Overview**: The logs span a short period, from 11:09:18 to 11:09:27 on 2019-09-24, indicating a focused snapshot of system activity.
+2. **Processes and Actions**: Various processes are involved, including `System`, `python.exe`, `lwabeat.exe`, `svchost.exe`, `powershell.exe`, and `whoami.exe`. Actions include network communications, file modifications, and process creations.
+
+### Key Observations
+
+1. **Network Activity**: There's extensive network activity related to the `System` process (PID 4) communicating over ports 138, which is typically used for NetBIOS. This activity involves both message and start actions, indicating potential network discovery or communication.
+   
+2. **File Modifications**: The `System` process modifies files, including `agent.log`, `Security.evtx`, and `$LogFile`, indicating system-level logging and file system activity.
+
+3. **Process Creation**: There are instances of `powershell.exe` being executed with an encoded command, which is a common trait of malicious activity as it can be used to obfuscate commands.
+
+4. **`whoami.exe` Execution**: The execution of `whoami.exe` with the `/groups` argument by `powershell.exe` is observed. This is a command often used by attackers to understand the privileges of the compromised user.
+
+5. **Network Connections by `powershell.exe`**: `powershell.exe` (PID 648) establishes an outbound connection to `202.6.172.98` over port 443, indicating potential command and control (C2) communication.
+
+### Analysis
+
+The presence of `powershell.exe` with an encoded command and the subsequent execution of `whoami.exe` with the `/groups` argument are highly indicative of malicious activity. Encoded commands are often used to evade detection, and `whoami /groups` is a common reconnaissance command used by attackers to understand their privileges on the system.
+
+### Evidence For and Against Attack
+
+- **Evidence For Attack**:
+  - Execution of `powershell.exe` with an encoded command.
+  - Use of `whoami.exe` with `/groups` argument by `powershell.exe`.
+  - Outbound network connection from `powershell.exe` to an external IP (`202.6.172.98`) over HTTPS (port 443), potentially indicating C2 communication.
+
+- **Evidence Against**:
+  - The extensive NetBIOS activity by the `System` process could be legitimate system activity, as NetBIOS is used for network browsing and other local network functions.
+  - File modifications by the `System` process could be part of normal system operation.
+
+### Deliberation
+
+While there are several benign activities logged, the specific sequence involving `powershell.exe` with an encoded command, followed by the execution of `whoami.exe` and establishing an outbound connection to an external IP, strongly suggests malicious activity. The use of encoded commands and the execution of reconnaissance commands like `whoami` are tactics commonly employed by attackers.
+
+### Verdict
+
+Given the evidence, the activity is **HIGH_SUSPICIOUS** due to the presence of encoded PowerShell commands, the execution of `whoami` for reconnaissance, and the establishment of potential C2 communications.
+
+### JSON Report
+
+```json
+{
+    "key log lines": "(2019-09-24 11:09:21) [054df7d9-801e-49d0-b8cd-4f20b42a4305]{'pid': 648, 'image_path': '\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe', 'type': 'process'}   -->   [32497c8d-118b-469e-81df-cb79796df92e]{'principal': 'SYSTEMIACOM\\\\bantonio', 'direction': 'outbound', 'end_time': '377252', 'start_time': '377247', 'action': 'MESSAGE'}   -->   [55016343-af49-4fdd-9714-194a0bd8ae76]{'dest_ip': '202.6.172.98', 'dest_port': '443', 'image_path': '\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe', 'l4protocol': '6', 'size': '667', 'src_ip': '142.20.57.246', 'src_port': '50130', 'type': 'socket'}\n(2019-09-24 11:09:27) [054df7d9-801e-49d0-b8cd-4f20b42a4305]{'pid': 1504, 'command_line': '\"C:\\\\Windows\\\\system32\\\\whoami.exe" /groups', 'parent_image_path': '\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe', 'type': 'process'}   -->   [9a5700d1-35b1-4929-bbb0-fc239e394673]{'principal': 'SYSTEMIACOM\\\\bantonio', 'sid': 'S-1-5-21-4190936083-3304963419-1584388968-4146', 'user': 'SYSTEMIACOM\\\\bantonio', 'action': 'CREATE'}   -->   [76f25181-2c21-4aaa-8a9c-5f2f3abca858]{'image_path': '\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\system32\\\\whoami.exe', 'type': 'process'}",
+    "evidence for": "The execution of powershell.exe with an encoded command, followed by the execution of whoami.exe with the /groups argument, and an outbound connection to 202.6.172.98 over port 443.",
+    "evidence against": "The extensive NetBIOS activity and file modifications by the System process could be part of normal system operations.",
+    "deliberation": "The specific sequence involving powershell.exe with an encoded command, followed by whoami.exe execution, and an outbound connection to an external IP, is highly indicative of malicious activity.",
+    "verdict": "HIGH_SUSPICIOUS"
+}
+```
+
+-----------------------llama------------------------

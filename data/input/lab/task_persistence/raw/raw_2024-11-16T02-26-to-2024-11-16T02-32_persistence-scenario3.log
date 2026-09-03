@@ -1,0 +1,642 @@
+type=SYSCALL msg=audit(1731745599.700:24283): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c7e1860 a1=55d48c91b5b0 a2=55d48c803320 a3=8 items=2 ppid=8607 pid=12000 auid=1003 uid=1003 gid=1004 euid=0 suid=0 fsuid=0 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="sudo" exe="/usr/bin/sudo" subj=unconfined
+type=SYSCALL msg=audit(1731745599.700:24284): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c910110 a1=55d48c9173d0 a2=55d48c803320 a3=8 items=2 ppid=8607 pid=12001 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="grep" exe="/usr/bin/grep" subj=unconfined
+type=EXECVE msg=audit(1731745599.700:24283): argc=3 a0="sudo" a1="ss" a2="-tuln"
+type=EXECVE msg=audit(1731745599.700:24284): argc=2 a0="grep" a1=":22"
+type=CWD msg=audit(1731745599.700:24283): cwd="/home/alice"
+type=CWD msg=audit(1731745599.700:24284): cwd="/home/alice"
+type=PATH msg=audit(1731745599.700:24284): item=0 name="/usr/bin/grep" inode=1688 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745599.700:24283): item=0 name="/usr/bin/sudo" inode=2028 dev=08:01 mode=0104755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745599.700:24284): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745599.700:24283): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745599.700:24284): proctitle=67726570003A3232
+type=PROCTITLE msg=audit(1731745599.700:24283): proctitle=7375646F007373002D74756C6E
+type=SYSCALL msg=audit(1731745599.704:24285): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7efe3bd617f4 a2=10 a3=7ffd163d0044 items=0 ppid=8607 pid=12000 auid=1003 uid=0 gid=1004 euid=0 suid=0 fsuid=0 egid=0 sgid=1004 fsgid=0 tty=pts1 ses=60 comm="sudo" exe="/usr/bin/sudo" subj=unconfined
+type=SOCKADDR msg=audit(1731745599.704:24285): saddr=020000357F000035804658B825560000
+type=PROCTITLE msg=audit(1731745599.704:24285): proctitle=7375646F007373002D74756C6E
+type=SYSCALL msg=audit(1731745599.704:24286): arch=c000003e syscall=42 success=yes exit=0 a0=f a1=7fff7c3dcb70 a2=10 a3=7fff7c3dcb6c items=0 ppid=1 pid=524 auid=4294967295 uid=101 gid=103 euid=101 suid=101 fsuid=101 egid=103 sgid=103 fsgid=103 tty=(none) ses=4294967295 comm="systemd-resolve" exe="/usr/lib/systemd/systemd-resolved" subj=unconfined
+type=SOCKADDR msg=audit(1731745599.704:24286): saddr=02000035A9FEA9FE0000000000000000
+type=PROCTITLE msg=audit(1731745599.704:24286): proctitle="/lib/systemd/systemd-resolved"
+type=SYSCALL msg=audit(1731745599.704:24287): arch=c000003e syscall=42 success=yes exit=0 a0=10 a1=7fff7c3dcb70 a2=10 a3=7fff7c3dcb6c items=0 ppid=1 pid=524 auid=4294967295 uid=101 gid=103 euid=101 suid=101 fsuid=101 egid=103 sgid=103 fsgid=103 tty=(none) ses=4294967295 comm="systemd-resolve" exe="/usr/lib/systemd/systemd-resolved" subj=unconfined
+type=SOCKADDR msg=audit(1731745599.704:24287): saddr=02000035A9FEA9FE0000000000000000
+type=PROCTITLE msg=audit(1731745599.704:24287): proctitle="/lib/systemd/systemd-resolved"
+type=USER_ACCT msg=audit(1731745599.708:24288): pid=12000 uid=1003 auid=1003 ses=60 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="alice" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=USER_CMD msg=audit(1731745599.708:24289): pid=12000 uid=1003 auid=1003 ses=60 subj=unconfined msg='cwd="/home/alice" cmd=7373202D74756C6E terminal=pts/1 res=success'
+type=CRED_REFR msg=audit(1731745599.708:24290): pid=12000 uid=0 auid=1003 ses=60 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=USER_START msg=audit(1731745599.708:24291): pid=12000 uid=0 auid=1003 ses=60 subj=unconfined msg='op=PAM:session_open grantors=pam_env,pam_env,pam_permit,pam_umask,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=SYSCALL msg=audit(1731745599.712:24292): arch=c000003e syscall=59 success=yes exit=0 a0=5625b8583bf8 a1=5625b858c568 a2=5625b858e050 a3=0 items=2 ppid=12000 pid=12002 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts1 ses=60 comm="ss" exe="/usr/bin/ss" subj=unconfined
+type=EXECVE msg=audit(1731745599.712:24292): argc=2 a0="ss" a1="-tuln"
+type=CWD msg=audit(1731745599.712:24292): cwd="/home/alice"
+type=PATH msg=audit(1731745599.712:24292): item=0 name="/usr/bin/ss" inode=1945 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745599.712:24292): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745599.712:24292): proctitle=7373002D74756C6E
+type=USER_END msg=audit(1731745599.732:24293): pid=12000 uid=0 auid=1003 ses=60 subj=unconfined msg='op=PAM:session_close grantors=pam_env,pam_env,pam_permit,pam_umask,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=CRED_DISP msg=audit(1731745599.732:24294): pid=12000 uid=0 auid=1003 ses=60 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=SYSCALL msg=audit(1731745643.668:24295): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c91c1e0 a1=55d48c90f410 a2=55d48c801830 a3=8 items=2 ppid=8607 pid=12011 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="ssh" exe="/usr/bin/ssh" subj=unconfined
+type=EXECVE msg=audit(1731745643.668:24295): argc=6 a0="ssh" a1="-f" a2="-N" a3="-R" a4="2222:localhost:22" a5="eve@34.121.109.87"
+type=CWD msg=audit(1731745643.668:24295): cwd="/home/alice"
+type=PATH msg=audit(1731745643.668:24295): item=0 name="/usr/bin/ssh" inode=2249 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745643.668:24295): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745643.668:24295): proctitle=737368002D66002D4E002D5200323232323A6C6F63616C686F73743A3232007969776569684033342E3132312E3130392E3837
+type=SYSCALL msg=audit(1731745643.680:24296): arch=c000003e syscall=42 success=yes exit=0 a0=3 a1=5568d230e0a0 a2=10 a3=5568d14e8c70 items=0 ppid=8607 pid=12011 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="ssh" exe="/usr/bin/ssh" subj=unconfined
+type=SOCKADDR msg=audit(1731745643.680:24296): saddr=0200001622796D570000000000000000
+type=PROCTITLE msg=audit(1731745643.680:24296): proctitle=737368002D66002D4E002D5200323232323A6C6F63616C686F73743A3232007969776569684033342E3132312E3130392E3837
+type=SYSCALL msg=audit(1731745703.400:24297): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c802880 a1=55d48c9173d0 a2=55d48c803320 a3=8 items=2 ppid=8607 pid=12021 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="grep" exe="/usr/bin/grep" subj=unconfined
+type=EXECVE msg=audit(1731745703.400:24297): argc=2 a0="grep" a1="ssh"
+type=CWD msg=audit(1731745703.400:24297): cwd="/home/alice"
+type=PATH msg=audit(1731745703.400:24297): item=0 name="/usr/bin/grep" inode=1688 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745703.400:24297): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745703.400:24297): proctitle=6772657000737368
+type=SYSCALL msg=audit(1731745703.400:24298): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c802880 a1=55d48c9173d0 a2=55d48c803320 a3=8 items=2 ppid=8607 pid=12020 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="ps" exe="/usr/bin/ps" subj=unconfined
+type=EXECVE msg=audit(1731745703.400:24298): argc=2 a0="ps" a1="aux"
+type=CWD msg=audit(1731745703.400:24298): cwd="/home/alice"
+type=PATH msg=audit(1731745703.400:24298): item=0 name="/usr/bin/ps" inode=1893 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745703.400:24298): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745703.400:24298): proctitle=707300617578
+type=SYSCALL msg=audit(1731745756.084:24299): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=12029 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731745756.084:24299): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731745756.084:24299): cwd="/"
+type=PATH msg=audit(1731745756.084:24299): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745756.084:24299): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745756.084:24299): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745756.088:24300): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=560e92627880 a2=1c a3=7ffd0ada6730 items=0 ppid=1019 pid=12029 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731745756.088:24300): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731745756.088:24300): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745756.088:24301): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffd0ada69a0 a2=10 a3=4 items=0 ppid=1019 pid=12029 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731745756.088:24301): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731745756.088:24301): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745756.088:24302): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=560e92628370 a2=10 a3=4 items=0 ppid=1019 pid=12029 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731745756.088:24302): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731745756.088:24302): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745826.182:24303): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=12039 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731745826.182:24303): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731745826.182:24303): cwd="/"
+type=PATH msg=audit(1731745826.182:24303): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.182:24303): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.182:24303): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745826.186:24304): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=56507fc03880 a2=1c a3=7ffd5e1454a0 items=0 ppid=1019 pid=12039 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731745826.186:24304): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731745826.186:24304): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745826.186:24305): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffd5e145710 a2=10 a3=4 items=0 ppid=1019 pid=12039 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731745826.186:24305): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731745826.186:24305): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745826.186:24306): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=56507fc04370 a2=10 a3=4 items=0 ppid=1019 pid=12039 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731745826.186:24306): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731745826.186:24306): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=USER_ACCT msg=audit(1731745826.310:24307): pid=12039 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="alice" exe="/usr/sbin/sshd" hostname=127.0.0.1 addr=127.0.0.1 terminal=ssh res=success'
+type=CRED_ACQ msg=audit(1731745826.314:24308): pid=12039 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="alice" exe="/usr/sbin/sshd" hostname=127.0.0.1 addr=127.0.0.1 terminal=ssh res=success'
+type=LOGIN msg=audit(1731745826.314:24309): pid=12039 uid=0 subj=unconfined old-auid=4294967295 auid=1003 tty=(none) old-ses=4294967295 ses=62 res=1
+type=SYSCALL msg=audit(1731745826.314:24309): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7ffd5e145bc0 a2=4 a3=7f6b7c890371 items=0 ppid=1019 pid=12039 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=PROCTITLE msg=audit(1731745826.314:24309): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731745826.326:24310): arch=c000003e syscall=59 success=yes exit=0 a0=7f6b7c30f5bd a1=7ffd5e145830 a2=56507fbe29f0 a3=8 items=2 ppid=12039 pid=12041 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="sh" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.326:24310): argc=3 a0="sh" a1="-c" a2=2F7573722F62696E2F656E76202D6920504154483D2F7573722F6C6F63616C2F7362696E3A2F7573722F6C6F63616C2F62696E3A2F7573722F7362696E3A2F7573722F62696E3A2F7362696E3A2F62696E2072756E2D7061727473202D2D6C7362737973696E6974202F6574632F7570646174652D6D6F74642E64203E202F72756E2F6D6F74642E64796E616D69632E6E6577
+type=CWD msg=audit(1731745826.326:24310): cwd="/"
+type=PATH msg=audit(1731745826.326:24310): item=0 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.326:24310): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.326:24310): proctitle=7368002D63002F7573722F62696E2F656E76202D6920504154483D2F7573722F6C6F63616C2F7362696E3A2F7573722F6C6F63616C2F62696E3A2F7573722F7362696E3A2F7573722F62696E3A2F7362696E3A2F62696E2072756E2D7061727473202D2D6C7362737973696E6974202F6574632F7570646174652D6D6F74642E
+type=SYSCALL msg=audit(1731745826.330:24311): arch=c000003e syscall=59 success=yes exit=0 a0=557b3d2b7568 a1=557b3d2b7668 a2=557b3d2b7808 a3=7f171d58f850 items=2 ppid=12041 pid=12042 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="env" exe="/usr/bin/env" subj=unconfined
+type=EXECVE msg=audit(1731745826.330:24311): argc=6 a0="/usr/bin/env" a1="-i" a2="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" a3="run-parts" a4="--lsbsysinit" a5="/etc/update-motd.d"
+type=CWD msg=audit(1731745826.330:24311): cwd="/"
+type=PATH msg=audit(1731745826.330:24311): item=0 name="/usr/bin/env" inode=1810 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.330:24311): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.330:24311): proctitle=2F7573722F62696E2F656E76002D6900504154483D2F7573722F6C6F63616C2F7362696E3A2F7573722F6C6F63616C2F62696E3A2F7573722F7362696E3A2F7573722F62696E3A2F7362696E3A2F62696E0072756E2D7061727473002D2D6C7362737973696E6974002F6574632F7570646174652D6D6F74642E64
+type=SYSCALL msg=audit(1731745826.330:24312): arch=c000003e syscall=59 success=no exit=-2 a0=7ffeb31a8860 a1=7ffeb31a8ac0 a2=55e6a5a790f0 a3=8000000004007 items=1 ppid=12041 pid=12042 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="env" exe="/usr/bin/env" subj=unconfined
+type=CWD msg=audit(1731745826.330:24312): cwd="/"
+type=PATH msg=audit(1731745826.330:24312): item=0 name="/usr/local/sbin/run-parts" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.330:24312): proctitle=2F7573722F62696E2F656E76002D6900504154483D2F7573722F6C6F63616C2F7362696E3A2F7573722F6C6F63616C2F62696E3A2F7573722F7362696E3A2F7573722F62696E3A2F7362696E3A2F62696E0072756E2D7061727473002D2D6C7362737973696E6974002F6574632F7570646174652D6D6F74642E64
+type=SYSCALL msg=audit(1731745826.330:24313): arch=c000003e syscall=59 success=no exit=-2 a0=7ffeb31a8860 a1=7ffeb31a8ac0 a2=55e6a5a790f0 a3=8000000004007 items=1 ppid=12041 pid=12042 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="env" exe="/usr/bin/env" subj=unconfined
+type=CWD msg=audit(1731745826.330:24313): cwd="/"
+type=PATH msg=audit(1731745826.330:24313): item=0 name="/usr/local/bin/run-parts" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.330:24313): proctitle=2F7573722F62696E2F656E76002D6900504154483D2F7573722F6C6F63616C2F7362696E3A2F7573722F6C6F63616C2F62696E3A2F7573722F7362696E3A2F7573722F62696E3A2F7362696E3A2F62696E0072756E2D7061727473002D2D6C7362737973696E6974002F6574632F7570646174652D6D6F74642E64
+type=SYSCALL msg=audit(1731745826.330:24314): arch=c000003e syscall=59 success=no exit=-2 a0=7ffeb31a8860 a1=7ffeb31a8ac0 a2=55e6a5a790f0 a3=8000000004007 items=1 ppid=12041 pid=12042 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="env" exe="/usr/bin/env" subj=unconfined
+type=CWD msg=audit(1731745826.330:24314): cwd="/"
+type=PATH msg=audit(1731745826.330:24314): item=0 name="/usr/sbin/run-parts" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.330:24314): proctitle=2F7573722F62696E2F656E76002D6900504154483D2F7573722F6C6F63616C2F7362696E3A2F7573722F6C6F63616C2F62696E3A2F7573722F7362696E3A2F7573722F62696E3A2F7362696E3A2F62696E0072756E2D7061727473002D2D6C7362737973696E6974002F6574632F7570646174652D6D6F74642E64
+type=SYSCALL msg=audit(1731745826.330:24315): arch=c000003e syscall=59 success=yes exit=0 a0=7ffeb31a8860 a1=7ffeb31a8ac0 a2=55e6a5a790f0 a3=8000000004007 items=2 ppid=12041 pid=12042 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="run-parts" exe="/usr/bin/run-parts" subj=unconfined
+type=EXECVE msg=audit(1731745826.330:24315): argc=3 a0="run-parts" a1="--lsbsysinit" a2="/etc/update-motd.d"
+type=CWD msg=audit(1731745826.330:24315): cwd="/"
+type=PATH msg=audit(1731745826.330:24315): item=0 name="/usr/bin/run-parts" inode=1625 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.330:24315): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.330:24315): proctitle=2F7573722F62696E2F656E76002D6900504154483D2F7573722F6C6F63616C2F7362696E3A2F7573722F6C6F63616C2F62696E3A2F7573722F7362696E3A2F7573722F62696E3A2F7362696E3A2F62696E0072756E2D7061727473002D2D6C7362737973696E6974002F6574632F7570646174652D6D6F74642E64
+type=SYSCALL msg=audit(1731745826.330:24316): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12043 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="00-header" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.330:24316): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/00-header"
+type=CWD msg=audit(1731745826.330:24316): cwd="/"
+type=PATH msg=audit(1731745826.330:24316): item=0 name="/etc/update-motd.d/00-header" inode=94 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.330:24316): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.330:24316): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.330:24316): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F30302D686561646572
+type=SYSCALL msg=audit(1731745826.330:24317): arch=c000003e syscall=59 success=yes exit=0 a0=564a2120a510 a1=564a2120a4e0 a2=564a2120a4f8 a3=564a2120a010 items=2 ppid=12043 pid=12044 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="uname" exe="/usr/bin/uname" subj=unconfined
+type=EXECVE msg=audit(1731745826.330:24317): argc=2 a0="uname" a1="-o"
+type=CWD msg=audit(1731745826.330:24317): cwd="/"
+type=PATH msg=audit(1731745826.330:24317): item=0 name="/usr/bin/uname" inode=1784 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.330:24317): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.330:24317): proctitle=756E616D65002D6F
+type=SYSCALL msg=audit(1731745826.334:24318): arch=c000003e syscall=59 success=yes exit=0 a0=564a2120a530 a1=564a2120a500 a2=564a2120a518 a3=564a2120a010 items=2 ppid=12043 pid=12045 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="uname" exe="/usr/bin/uname" subj=unconfined
+type=EXECVE msg=audit(1731745826.334:24318): argc=2 a0="uname" a1="-r"
+type=CWD msg=audit(1731745826.334:24318): cwd="/"
+type=PATH msg=audit(1731745826.334:24318): item=0 name="/usr/bin/uname" inode=1784 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.334:24318): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.334:24318): proctitle=756E616D65002D72
+type=SYSCALL msg=audit(1731745826.334:24319): arch=c000003e syscall=59 success=yes exit=0 a0=564a2120a728 a1=564a2120a528 a2=564a2120a540 a3=564a2120a010 items=2 ppid=12043 pid=12046 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="uname" exe="/usr/bin/uname" subj=unconfined
+type=EXECVE msg=audit(1731745826.334:24319): argc=2 a0="uname" a1="-m"
+type=CWD msg=audit(1731745826.334:24319): cwd="/"
+type=PATH msg=audit(1731745826.334:24319): item=0 name="/usr/bin/uname" inode=1784 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.334:24319): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.334:24319): proctitle=756E616D65002D6D
+type=SYSCALL msg=audit(1731745826.334:24320): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12047 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="10-help-text" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.334:24320): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/10-help-text"
+type=CWD msg=audit(1731745826.334:24320): cwd="/"
+type=PATH msg=audit(1731745826.334:24320): item=0 name="/etc/update-motd.d/10-help-text" inode=95 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.334:24320): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.334:24320): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.334:24320): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F31302D68656C702D74657874
+type=SYSCALL msg=audit(1731745826.334:24321): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12048 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="50-landscape-sy" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.334:24321): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/50-landscape-sysinfo"
+type=CWD msg=audit(1731745826.334:24321): cwd="/"
+type=PATH msg=audit(1731745826.334:24321): item=0 name="/etc/update-motd.d/50-landscape-sysinfo" inode=39187 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.334:24321): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.334:24321): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.334:24321): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F35302D6C616E6473636170652D737973696E666F
+type=SYSCALL msg=audit(1731745826.334:24322): arch=c000003e syscall=59 success=yes exit=0 a0=557ce02b16e8 a1=557ce02b1688 a2=557ce02b16d0 a3=1b6 items=2 ppid=12048 pid=12049 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="find" exe="/usr/bin/find" subj=unconfined
+type=EXECVE msg=audit(1731745826.334:24322): argc=4 a0="find" a1="/var/lib/landscape/landscape-sysinfo.cache" a2="-newermt" a3=6E6F772D31206D696E75746573
+type=CWD msg=audit(1731745826.334:24322): cwd="/"
+type=PATH msg=audit(1731745826.334:24322): item=0 name="/usr/bin/find" inode=1684 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.334:24322): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.334:24322): proctitle=66696E64002F7661722F6C69622F6C616E6473636170652F6C616E6473636170652D737973696E666F2E6361636865002D6E657765726D74006E6F772D31206D696E75746573
+type=SYSCALL msg=audit(1731745826.338:24323): arch=c000003e syscall=59 success=yes exit=0 a0=557ce02b3080 a1=557ce02b3018 a2=557ce02b3060 a3=557ce02b1010 items=2 ppid=12048 pid=12050 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="grep" exe="/usr/bin/grep" subj=unconfined
+type=EXECVE msg=audit(1731745826.338:24323): argc=4 a0="grep" a1="-c" a2="^processor" a3="/proc/cpuinfo"
+type=CWD msg=audit(1731745826.338:24323): cwd="/"
+type=PATH msg=audit(1731745826.338:24323): item=0 name="/usr/bin/grep" inode=1688 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.338:24323): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.338:24323): proctitle=67726570002D63005E70726F636573736F72002F70726F632F637075696E666F
+type=SYSCALL msg=audit(1731745826.338:24325): arch=c000003e syscall=59 success=yes exit=0 a0=557ce02b3098 a1=557ce02b3048 a2=557ce02b3078 a3=557ce02b1010 items=2 ppid=12052 pid=12054 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cut" exe="/usr/bin/cut" subj=unconfined
+type=SYSCALL msg=audit(1731745826.338:24324): arch=c000003e syscall=59 success=yes exit=0 a0=557ce02b2ff0 a1=557ce02b2fc0 a2=557ce02b2fd0 a3=557ce02b1010 items=2 ppid=12051 pid=12053 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="bc" exe="/usr/bin/bc" subj=unconfined
+type=EXECVE msg=audit(1731745826.338:24324): argc=1 a0="bc"
+type=EXECVE msg=audit(1731745826.338:24325): argc=5 a0="cut" a1="-f1" a2="-d" a3=20 a4="/proc/loadavg"
+type=CWD msg=audit(1731745826.338:24324): cwd="/"
+type=CWD msg=audit(1731745826.338:24325): cwd="/"
+type=PATH msg=audit(1731745826.338:24324): item=0 name="/usr/bin/bc" inode=2276 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.338:24325): item=0 name="/usr/bin/cut" inode=1806 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.338:24324): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.338:24325): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.338:24324): proctitle="bc"
+type=PROCTITLE msg=audit(1731745826.338:24325): proctitle=637574002D6631002D640020002F70726F632F6C6F6164617667
+type=SYSCALL msg=audit(1731745826.342:24326): arch=c000003e syscall=59 success=yes exit=0 a0=557ce02b3008 a1=557ce02b3030 a2=557ce02b3040 a3=557ce02b1010 items=2 ppid=12055 pid=12056 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="date" exe="/usr/bin/date" subj=unconfined
+type=EXECVE msg=audit(1731745826.342:24326): argc=1 a0="/bin/date"
+type=CWD msg=audit(1731745826.342:24326): cwd="/"
+type=PATH msg=audit(1731745826.342:24326): item=0 name="/bin/date" inode=1608 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.342:24326): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.342:24326): proctitle="/bin/date"
+type=SYSCALL msg=audit(1731745826.342:24327): arch=c000003e syscall=59 success=yes exit=0 a0=557ce02b3040 a1=557ce02b3078 a2=557ce02b3088 a3=557ce02b1010 items=3 ppid=12055 pid=12057 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="landscape-sysin" exe="/usr/bin/python3.8" subj=unconfined
+type=EXECVE msg=audit(1731745826.342:24327): argc=2 a0="/usr/bin/python3" a1="/usr/bin/landscape-sysinfo"
+type=CWD msg=audit(1731745826.342:24327): cwd="/"
+type=PATH msg=audit(1731745826.342:24327): item=0 name="/usr/bin/landscape-sysinfo" inode=2187 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.342:24327): item=1 name="/usr/bin/python3" inode=6912 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.342:24327): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.342:24327): proctitle=2F7573722F62696E2F707974686F6E33002F7573722F62696E2F6C616E6473636170652D737973696E666F
+type=SYSCALL msg=audit(1731745826.438:24328): arch=c000003e syscall=59 success=no exit=-2 a0=7f3235510f10 a1=7f3235510ef0 a2=7ffc65f9c860 a3=413820 items=1 ppid=12057 pid=12058 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="landscape-sysin" exe="/usr/bin/python3.8" subj=unconfined
+type=CWD msg=audit(1731745826.438:24328): cwd="/"
+type=PATH msg=audit(1731745826.438:24328): item=0 name="/usr/local/sbin/uname" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.438:24328): proctitle=2F7573722F62696E2F707974686F6E33002F7573722F62696E2F6C616E6473636170652D737973696E666F
+type=SYSCALL msg=audit(1731745826.438:24329): arch=c000003e syscall=59 success=no exit=-2 a0=7f3235510dd0 a1=7f3235510ef0 a2=7ffc65f9c860 a3=413820 items=1 ppid=12057 pid=12058 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="landscape-sysin" exe="/usr/bin/python3.8" subj=unconfined
+type=CWD msg=audit(1731745826.438:24329): cwd="/"
+type=PATH msg=audit(1731745826.438:24329): item=0 name="/usr/local/bin/uname" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.438:24329): proctitle=2F7573722F62696E2F707974686F6E33002F7573722F62696E2F6C616E6473636170652D737973696E666F
+type=SYSCALL msg=audit(1731745826.438:24330): arch=c000003e syscall=59 success=no exit=-2 a0=7f32354935d0 a1=7f3235510ef0 a2=7ffc65f9c860 a3=413820 items=1 ppid=12057 pid=12058 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="landscape-sysin" exe="/usr/bin/python3.8" subj=unconfined
+type=CWD msg=audit(1731745826.438:24330): cwd="/"
+type=PATH msg=audit(1731745826.438:24330): item=0 name="/usr/sbin/uname" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.438:24330): proctitle=2F7573722F62696E2F707974686F6E33002F7573722F62696E2F6C616E6473636170652D737973696E666F
+type=SYSCALL msg=audit(1731745826.438:24331): arch=c000003e syscall=59 success=yes exit=0 a0=7f32354935f0 a1=7f3235510ef0 a2=7ffc65f9c860 a3=413820 items=2 ppid=12057 pid=12058 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="uname" exe="/usr/bin/uname" subj=unconfined
+type=EXECVE msg=audit(1731745826.438:24331): argc=2 a0="uname" a1="-p"
+type=CWD msg=audit(1731745826.438:24331): cwd="/"
+type=PATH msg=audit(1731745826.438:24331): item=0 name="/usr/bin/uname" inode=1784 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.438:24331): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.438:24331): proctitle=2F7573722F62696E2F707974686F6E33002F7573722F62696E2F6C616E6473636170652D737973696E666F
+type=SYSCALL msg=audit(1731745826.606:24332): arch=c000003e syscall=59 success=yes exit=0 a0=557ce02b3068 a1=557ce02b3008 a2=557ce02b3048 a3=7f656d36a850 items=2 ppid=12048 pid=12059 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="chmod" exe="/usr/bin/chmod" subj=unconfined
+type=EXECVE msg=audit(1731745826.606:24332): argc=3 a0="chmod" a1="0644" a2="/var/lib/landscape/landscape-sysinfo.cache"
+type=CWD msg=audit(1731745826.606:24332): cwd="/"
+type=PATH msg=audit(1731745826.606:24332): item=0 name="/usr/bin/chmod" inode=1605 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.606:24332): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.606:24332): proctitle=63686D6F640030363434002F7661722F6C69622F6C616E6473636170652F6C616E6473636170652D737973696E666F2E6361636865
+type=SYSCALL msg=audit(1731745826.606:24333): arch=c000003e syscall=268 success=yes exit=0 a0=ffffff9c a1=560e8e2691b0 a2=1a4 a3=fff items=1 ppid=12048 pid=12059 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="chmod" exe="/usr/bin/chmod" subj=unconfined
+type=CWD msg=audit(1731745826.606:24333): cwd="/"
+type=PATH msg=audit(1731745826.606:24333): item=0 name="/var/lib/landscape/landscape-sysinfo.cache" inode=66444 dev=08:01 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.606:24333): proctitle=63686D6F640030363434002F7661722F6C69622F6C616E6473636170652F6C616E6473636170652D737973696E666F2E6361636865
+type=SYSCALL msg=audit(1731745826.610:24334): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12060 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="50-motd-news" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.610:24334): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/50-motd-news"
+type=CWD msg=audit(1731745826.610:24334): cwd="/"
+type=PATH msg=audit(1731745826.610:24334): item=0 name="/etc/update-motd.d/50-motd-news" inode=96 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24334): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24334): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.610:24334): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F35302D6D6F74642D6E657773
+type=SYSCALL msg=audit(1731745826.610:24335): arch=c000003e syscall=59 success=yes exit=0 a0=55bc3db63c60 a1=55bc3db63c30 a2=55bc3db63c48 a3=7f73a181dac0 items=2 ppid=12060 pid=12061 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cat" exe="/usr/bin/cat" subj=unconfined
+type=SYSCALL msg=audit(1731745826.610:24336): arch=c000003e syscall=59 success=yes exit=0 a0=55bc3db63c68 a1=55bc3db63c30 a2=55bc3db63c50 a3=55bc3db63010 items=2 ppid=12060 pid=12062 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="head" exe="/usr/bin/head" subj=unconfined
+type=EXECVE msg=audit(1731745826.610:24336): argc=3 a0="head" a1="-n" a2="10"
+type=CWD msg=audit(1731745826.610:24336): cwd="/"
+type=PATH msg=audit(1731745826.610:24336): item=0 name="/usr/bin/head" inode=1817 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24336): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.610:24336): proctitle=68656164002D6E003130
+type=SYSCALL msg=audit(1731745826.610:24338): arch=c000003e syscall=59 success=yes exit=0 a0=55bc3db63c68 a1=55bc3db63c30 a2=55bc3db63c50 a3=55bc3db63010 items=2 ppid=12060 pid=12064 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cut" exe="/usr/bin/cut" subj=unconfined
+type=SYSCALL msg=audit(1731745826.610:24337): arch=c000003e syscall=59 success=yes exit=0 a0=55bc3db63c88 a1=55bc3db63c50 a2=55bc3db63c70 a3=55bc3db63010 items=2 ppid=12060 pid=12063 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="tr" exe="/usr/bin/tr" subj=unconfined
+type=EXECVE msg=audit(1731745826.610:24338): argc=3 a0="cut" a1="-c" a2="-80"
+type=EXECVE msg=audit(1731745826.610:24337): argc=3 a0="tr" a1="-d" a2="\000-\011\013\014\016-\037"
+type=CWD msg=audit(1731745826.610:24338): cwd="/"
+type=CWD msg=audit(1731745826.610:24337): cwd="/"
+type=PATH msg=audit(1731745826.610:24338): item=0 name="/usr/bin/cut" inode=1806 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24337): item=0 name="/usr/bin/tr" inode=1859 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24338): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24337): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.610:24338): proctitle=637574002D63002D3830
+type=PROCTITLE msg=audit(1731745826.610:24337): proctitle=7472002D64005C3030302D5C3031315C3031335C3031345C3031362D5C303337
+type=EXECVE msg=audit(1731745826.610:24335): argc=2 a0="cat" a1="/var/cache/motd-news"
+type=CWD msg=audit(1731745826.610:24335): cwd="/"
+type=PATH msg=audit(1731745826.610:24335): item=0 name="/usr/bin/cat" inode=1603 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24335): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.610:24335): proctitle=636174002F7661722F63616368652F6D6F74642D6E657773
+type=SYSCALL msg=audit(1731745826.610:24339): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12065 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="85-fwupd" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.610:24339): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/85-fwupd"
+type=CWD msg=audit(1731745826.610:24339): cwd="/"
+type=PATH msg=audit(1731745826.610:24339): item=0 name="/etc/update-motd.d/85-fwupd" inode=77659 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24339): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24339): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.610:24339): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F38352D6677757064
+type=SYSCALL msg=audit(1731745826.610:24340): arch=c000003e syscall=59 success=yes exit=0 a0=55a732467380 a1=55a7320d1c98 a2=55a732467368 a3=7f4b37dc1850 items=2 ppid=12065 pid=12066 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cat" exe="/usr/bin/cat" subj=unconfined
+type=EXECVE msg=audit(1731745826.610:24340): argc=2 a0="cat" a1="/run/motd.d/85-fwupd"
+type=CWD msg=audit(1731745826.610:24340): cwd="/"
+type=PATH msg=audit(1731745826.610:24340): item=0 name="/usr/bin/cat" inode=1603 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.610:24340): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.610:24340): proctitle=636174002F72756E2F6D6F74642E642F38352D6677757064
+type=SYSCALL msg=audit(1731745826.614:24341): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12067 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="90-updates-avai" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.614:24341): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/90-updates-available"
+type=CWD msg=audit(1731745826.614:24341): cwd="/"
+type=PATH msg=audit(1731745826.614:24341): item=0 name="/etc/update-motd.d/90-updates-available" inode=99 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24341): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24341): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.614:24341): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39302D757064617465732D617661696C61626C65
+type=SYSCALL msg=audit(1731745826.614:24342): arch=c000003e syscall=59 success=yes exit=0 a0=5626fd926440 a1=5626fd926410 a2=5626fd926428 a3=7f600f92b850 items=2 ppid=12067 pid=12068 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cat" exe="/usr/bin/cat" subj=unconfined
+type=EXECVE msg=audit(1731745826.614:24342): argc=2 a0="cat" a1="/var/lib/update-notifier/updates-available"
+type=CWD msg=audit(1731745826.614:24342): cwd="/"
+type=PATH msg=audit(1731745826.614:24342): item=0 name="/usr/bin/cat" inode=1603 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24342): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.614:24342): proctitle=636174002F7661722F6C69622F7570646174652D6E6F7469666965722F757064617465732D617661696C61626C65
+type=SYSCALL msg=audit(1731745826.614:24343): arch=c000003e syscall=59 success=yes exit=0 a0=5626fd926798 a1=5626fd9265a0 a2=5626fd9265e8 a3=1b6 items=2 ppid=12067 pid=12069 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="find" exe="/usr/bin/find" subj=unconfined
+type=EXECVE msg=audit(1731745826.614:24343): argc=4 a0="find" a1="/var/lib/update-notifier/updates-available" a2="-newermt" a3=6E6F772D372064617973
+type=CWD msg=audit(1731745826.614:24343): cwd="/"
+type=PATH msg=audit(1731745826.614:24343): item=0 name="/usr/bin/find" inode=1684 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24343): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.614:24343): proctitle=66696E64002F7661722F6C69622F7570646174652D6E6F7469666965722F757064617465732D617661696C61626C65002D6E657765726D74006E6F772D372064617973
+type=SYSCALL msg=audit(1731745826.614:24344): arch=c000003e syscall=59 success=yes exit=0 a0=5626fd9265c8 a1=5626fd926580 a2=5626fd9265b0 a3=7f600f92b850 items=2 ppid=12067 pid=12070 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="grep" exe="/usr/bin/grep" subj=unconfined
+type=EXECVE msg=audit(1731745826.614:24344): argc=5 a0="grep" a1="-q" a2="-m" a3="1" a4="."
+type=CWD msg=audit(1731745826.614:24344): cwd="/"
+type=PATH msg=audit(1731745826.614:24344): item=0 name="/usr/bin/grep" inode=1688 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24344): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.614:24344): proctitle=67726570002D71002D6D0031002E
+type=SYSCALL msg=audit(1731745826.614:24345): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12071 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="91-contract-ua-" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.614:24345): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/91-contract-ua-esm-status"
+type=CWD msg=audit(1731745826.614:24345): cwd="/"
+type=PATH msg=audit(1731745826.614:24345): item=0 name="/etc/update-motd.d/91-contract-ua-esm-status" inode=97 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24345): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24345): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.614:24345): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39312D636F6E74726163742D75612D65736D2D737461747573
+type=SYSCALL msg=audit(1731745826.614:24346): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12072 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="91-release-upgr" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.614:24346): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/91-release-upgrade"
+type=CWD msg=audit(1731745826.614:24346): cwd="/"
+type=PATH msg=audit(1731745826.614:24346): item=0 name="/etc/update-motd.d/91-release-upgrade" inode=98 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24346): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.614:24346): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.614:24346): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39312D72656C656173652D75706772616465
+type=SYSCALL msg=audit(1731745826.618:24347): arch=c000003e syscall=59 success=yes exit=0 a0=55b36886a4d0 a1=55b36886a4a0 a2=55b36886a4b8 a3=7ff44f78f850 items=3 ppid=12073 pid=12074 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="lsb_release" exe="/usr/bin/python3.8" subj=unconfined
+type=EXECVE msg=audit(1731745826.618:24347): argc=4 a0="/usr/bin/python3" a1="-Es" a2="/usr/bin/lsb_release" a3="-sd"
+type=CWD msg=audit(1731745826.618:24347): cwd="/"
+type=PATH msg=audit(1731745826.618:24347): item=0 name="/usr/bin/lsb_release" inode=2015 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.618:24347): item=1 name="/usr/bin/python3" inode=6912 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.618:24347): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.618:24347): proctitle=2F7573722F62696E2F707974686F6E33002D4573002F7573722F62696E2F6C73625F72656C65617365002D7364
+type=SYSCALL msg=audit(1731745826.618:24348): arch=c000003e syscall=59 success=yes exit=0 a0=55b36886a4e8 a1=55b36886a4b0 a2=55b36886a4d0 a3=7ff44f78f850 items=2 ppid=12073 pid=12075 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cut" exe="/usr/bin/cut" subj=unconfined
+type=EXECVE msg=audit(1731745826.618:24348): argc=3 a0="cut" a1=2D6420 a2="-f4"
+type=CWD msg=audit(1731745826.618:24348): cwd="/"
+type=PATH msg=audit(1731745826.618:24348): item=0 name="/usr/bin/cut" inode=1806 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.618:24348): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.618:24348): proctitle=637574002D6420002D6634
+type=SYSCALL msg=audit(1731745826.650:24349): arch=c000003e syscall=59 success=yes exit=0 a0=55b36886a3f0 a1=55b36886a3c0 a2=55b36886a3d8 a3=7ff44f78f850 items=2 ppid=12072 pid=12076 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="id" exe="/usr/bin/id" subj=unconfined
+type=EXECVE msg=audit(1731745826.650:24349): argc=2 a0="id" a1="-u"
+type=CWD msg=audit(1731745826.650:24349): cwd="/"
+type=PATH msg=audit(1731745826.650:24349): item=0 name="/usr/bin/id" inode=1819 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.650:24349): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.650:24349): proctitle=6964002D75
+type=SYSCALL msg=audit(1731745826.654:24350): arch=c000003e syscall=59 success=yes exit=0 a0=55b36886a348 a1=55b36886a3a0 a2=55b36886a3b0 a3=55b3686eac90 items=3 ppid=12042 pid=12072 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="release-upgrade" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.654:24350): argc=3 a0="/bin/sh" a1="-e" a2="/usr/lib/ubuntu-release-upgrader/release-upgrade-motd"
+type=CWD msg=audit(1731745826.654:24350): cwd="/"
+type=PATH msg=audit(1731745826.654:24350): item=0 name="/usr/lib/ubuntu-release-upgrader/release-upgrade-motd" inode=14571 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.654:24350): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.654:24350): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.654:24350): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39312D72656C656173652D75706772616465
+type=SYSCALL msg=audit(1731745826.654:24351): arch=c000003e syscall=59 success=yes exit=0 a0=556399b83f28 a1=556399b83ef8 a2=556399b83f10 a3=7f9617ef1850 items=2 ppid=12072 pid=12077 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="date" exe="/usr/bin/date" subj=unconfined
+type=EXECVE msg=audit(1731745826.654:24351): argc=2 a0="date" a1="+%s"
+type=CWD msg=audit(1731745826.654:24351): cwd="/"
+type=PATH msg=audit(1731745826.654:24351): item=0 name="/usr/bin/date" inode=1608 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.654:24351): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.654:24351): proctitle=64617465002B2573
+type=SYSCALL msg=audit(1731745826.654:24352): arch=c000003e syscall=59 success=yes exit=0 a0=556399b83fc8 a1=556399b83f88 a2=556399b83fb0 a3=73 items=2 ppid=12072 pid=12078 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="stat" exe="/usr/bin/stat" subj=unconfined
+type=EXECVE msg=audit(1731745826.654:24352): argc=4 a0="stat" a1="-c" a2="%Y" a3="/var/lib/ubuntu-release-upgrader/release-upgrade-available"
+type=CWD msg=audit(1731745826.654:24352): cwd="/"
+type=PATH msg=audit(1731745826.654:24352): item=0 name="/usr/bin/stat" inode=1851 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.654:24352): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.654:24352): proctitle=73746174002D63002559002F7661722F6C69622F7562756E74752D72656C656173652D75706772616465722F72656C656173652D757067726164652D617661696C61626C65
+type=SYSCALL msg=audit(1731745826.654:24353): arch=c000003e syscall=59 success=yes exit=0 a0=556399b83f78 a1=556399b83f38 a2=556399b83f60 a3=6c items=2 ppid=12072 pid=12079 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="expr" exe="/usr/bin/expr" subj=unconfined
+type=EXECVE msg=audit(1731745826.654:24353): argc=4 a0="expr" a1="1731738922" a2="+" a3="86400"
+type=CWD msg=audit(1731745826.654:24353): cwd="/"
+type=PATH msg=audit(1731745826.654:24353): item=0 name="/usr/bin/expr" inode=1812 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.654:24353): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.654:24353): proctitle=657870720031373331373338393232002B003836343030
+type=SYSCALL msg=audit(1731745826.654:24354): arch=c000003e syscall=59 success=yes exit=0 a0=556399b83f50 a1=556399b83f20 a2=556399b83f38 a3=7f9617ef1850 items=2 ppid=12072 pid=12080 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cat" exe="/usr/bin/cat" subj=unconfined
+type=EXECVE msg=audit(1731745826.654:24354): argc=2 a0="cat" a1="/var/lib/ubuntu-release-upgrader/release-upgrade-available"
+type=CWD msg=audit(1731745826.654:24354): cwd="/"
+type=PATH msg=audit(1731745826.654:24354): item=0 name="/usr/bin/cat" inode=1603 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.654:24354): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.654:24354): proctitle=636174002F7661722F6C69622F7562756E74752D72656C656173652D75706772616465722F72656C656173652D757067726164652D617661696C61626C65
+type=SYSCALL msg=audit(1731745826.658:24355): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12081 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="92-unattended-u" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.658:24355): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/92-unattended-upgrades"
+type=CWD msg=audit(1731745826.658:24355): cwd="/"
+type=PATH msg=audit(1731745826.658:24355): item=0 name="/etc/update-motd.d/92-unattended-upgrades" inode=105 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24355): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24355): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.658:24355): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39322D756E617474656E6465642D7570677261646573
+type=SYSCALL msg=audit(1731745826.658:24356): arch=c000003e syscall=59 success=yes exit=0 a0=55aeef0ee368 a1=55aeef0ee3c8 a2=55aeef0ee3d8 a3=55aeedb90ca0 items=3 ppid=12042 pid=12081 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="update-motd-una" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.658:24356): argc=2 a0="/bin/sh" a1="/usr/share/unattended-upgrades/update-motd-unattended-upgrades"
+type=CWD msg=audit(1731745826.658:24356): cwd="/"
+type=PATH msg=audit(1731745826.658:24356): item=0 name="/usr/share/unattended-upgrades/update-motd-unattended-upgrades" inode=39308 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24356): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24356): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.658:24356): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39322D756E617474656E6465642D7570677261646573
+type=SYSCALL msg=audit(1731745826.658:24357): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12082 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="95-hwe-eol" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.658:24357): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/95-hwe-eol"
+type=CWD msg=audit(1731745826.658:24357): cwd="/"
+type=PATH msg=audit(1731745826.658:24357): item=0 name="/etc/update-motd.d/95-hwe-eol" inode=100 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24357): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24357): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.658:24357): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39352D6877652D656F6C
+type=SYSCALL msg=audit(1731745826.658:24358): arch=c000003e syscall=59 success=yes exit=0 a0=55ee0908d368 a1=55ee0908d3b8 a2=55ee0908d3c8 a3=55ee08162c80 items=3 ppid=12042 pid=12082 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="update-motd-hwe" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.658:24358): argc=3 a0="/bin/sh" a1="-e" a2="/usr/lib/update-notifier/update-motd-hwe-eol"
+type=CWD msg=audit(1731745826.658:24358): cwd="/"
+type=PATH msg=audit(1731745826.658:24358): item=0 name="/usr/lib/update-notifier/update-motd-hwe-eol" inode=14582 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24358): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24358): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.658:24358): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39352D6877652D656F6C
+type=SYSCALL msg=audit(1731745826.658:24359): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee26650 a1=55e09ee26618 a2=55e09ee26638 a3=7f77e1760850 items=2 ppid=12082 pid=12083 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="systemd-detect-" exe="/usr/bin/systemd-detect-virt" subj=unconfined
+type=EXECVE msg=audit(1731745826.658:24359): argc=3 a0="systemd-detect-virt" a1="-q" a2="-c"
+type=CWD msg=audit(1731745826.658:24359): cwd="/"
+type=PATH msg=audit(1731745826.658:24359): item=0 name="/usr/bin/systemd-detect-virt" inode=2007 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.658:24359): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.658:24359): proctitle=73797374656D642D6465746563742D76697274002D71002D63
+type=SYSCALL msg=audit(1731745826.662:24360): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee26390 a1=55e09ee26350 a2=55e09ee26378 a3=7f77e1760850 items=2 ppid=12082 pid=12084 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="apt-config" exe="/usr/bin/apt-config" subj=unconfined
+type=EXECVE msg=audit(1731745826.662:24360): argc=4 a0="apt-config" a1="shell" a2="StateDir" a3="Dir::State"
+type=CWD msg=audit(1731745826.662:24360): cwd="/"
+type=PATH msg=audit(1731745826.662:24360): item=0 name="/usr/bin/apt-config" inode=1882 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.662:24360): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.662:24360): proctitle=6170742D636F6E666967007368656C6C005374617465446972004469723A3A5374617465
+type=SYSCALL msg=audit(1731745826.666:24361): arch=c000003e syscall=59 success=yes exit=0 a0=5624fe04fb10 a1=5624fe059900 a2=7fffb67c1330 a3=5624fe04ee63 items=2 ppid=12084 pid=12085 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="dpkg" exe="/usr/bin/dpkg" subj=unconfined
+type=EXECVE msg=audit(1731745826.666:24361): argc=2 a0="/usr/bin/dpkg" a1="--print-foreign-architectures"
+type=CWD msg=audit(1731745826.666:24361): cwd="/"
+type=PATH msg=audit(1731745826.666:24361): item=0 name="/usr/bin/dpkg" inode=1645 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.666:24361): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.666:24361): proctitle=2F7573722F62696E2F64706B67002D2D7072696E742D666F726569676E2D61726368697465637475726573
+type=SYSCALL msg=audit(1731745826.670:24362): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee26390 a1=55e09ee26350 a2=55e09ee26378 a3=7f77e1760850 items=2 ppid=12082 pid=12086 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="apt-config" exe="/usr/bin/apt-config" subj=unconfined
+type=EXECVE msg=audit(1731745826.670:24362): argc=4 a0="apt-config" a1="shell" a2="ListDir" a3="Dir::State::Lists"
+type=CWD msg=audit(1731745826.670:24362): cwd="/"
+type=PATH msg=audit(1731745826.670:24362): item=0 name="/usr/bin/apt-config" inode=1882 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.670:24362): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.670:24362): proctitle=6170742D636F6E666967007368656C6C004C697374446972004469723A3A53746174653A3A4C69737473
+type=SYSCALL msg=audit(1731745826.674:24363): arch=c000003e syscall=59 success=yes exit=0 a0=55ffb9a4cb10 a1=55ffb9a56900 a2=7ffdda43f760 a3=55ffb9a4be63 items=2 ppid=12086 pid=12087 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="dpkg" exe="/usr/bin/dpkg" subj=unconfined
+type=EXECVE msg=audit(1731745826.674:24363): argc=2 a0="/usr/bin/dpkg" a1="--print-foreign-architectures"
+type=CWD msg=audit(1731745826.674:24363): cwd="/"
+type=PATH msg=audit(1731745826.674:24363): item=0 name="/usr/bin/dpkg" inode=1645 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.674:24363): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.674:24363): proctitle=2F7573722F62696E2F64706B67002D2D7072696E742D666F726569676E2D61726368697465637475726573
+type=SYSCALL msg=audit(1731745826.678:24364): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee263a0 a1=55e09ee26360 a2=55e09ee26388 a3=7f77e1760850 items=2 ppid=12082 pid=12088 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="apt-config" exe="/usr/bin/apt-config" subj=unconfined
+type=EXECVE msg=audit(1731745826.678:24364): argc=4 a0="apt-config" a1="shell" a2="DpkgStatus" a3="Dir::State::status"
+type=CWD msg=audit(1731745826.678:24364): cwd="/"
+type=PATH msg=audit(1731745826.678:24364): item=0 name="/usr/bin/apt-config" inode=1882 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.678:24364): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.678:24364): proctitle=6170742D636F6E666967007368656C6C0044706B67537461747573004469723A3A53746174653A3A737461747573
+type=SYSCALL msg=audit(1731745826.682:24365): arch=c000003e syscall=59 success=yes exit=0 a0=55da6af3db10 a1=55da6af47900 a2=7ffe1bb16180 a3=55da6af3ce63 items=2 ppid=12088 pid=12089 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="dpkg" exe="/usr/bin/dpkg" subj=unconfined
+type=EXECVE msg=audit(1731745826.682:24365): argc=2 a0="/usr/bin/dpkg" a1="--print-foreign-architectures"
+type=CWD msg=audit(1731745826.682:24365): cwd="/"
+type=PATH msg=audit(1731745826.682:24365): item=0 name="/usr/bin/dpkg" inode=1645 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.682:24365): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.682:24365): proctitle=2F7573722F62696E2F64706B67002D2D7072696E742D666F726569676E2D61726368697465637475726573
+type=SYSCALL msg=audit(1731745826.682:24366): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee26390 a1=55e09ee26350 a2=55e09ee26378 a3=7f77e1760850 items=2 ppid=12082 pid=12090 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="apt-config" exe="/usr/bin/apt-config" subj=unconfined
+type=EXECVE msg=audit(1731745826.682:24366): argc=4 a0="apt-config" a1="shell" a2="EtcDir" a3="Dir::Etc"
+type=CWD msg=audit(1731745826.682:24366): cwd="/"
+type=PATH msg=audit(1731745826.682:24366): item=0 name="/usr/bin/apt-config" inode=1882 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.682:24366): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.682:24366): proctitle=6170742D636F6E666967007368656C6C00457463446972004469723A3A457463
+type=SYSCALL msg=audit(1731745826.686:24367): arch=c000003e syscall=59 success=yes exit=0 a0=55c9eaca3b10 a1=55c9eacad900 a2=7ffef21b5c60 a3=55c9eaca2e63 items=2 ppid=12090 pid=12091 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="dpkg" exe="/usr/bin/dpkg" subj=unconfined
+type=EXECVE msg=audit(1731745826.686:24367): argc=2 a0="/usr/bin/dpkg" a1="--print-foreign-architectures"
+type=CWD msg=audit(1731745826.686:24367): cwd="/"
+type=PATH msg=audit(1731745826.686:24367): item=0 name="/usr/bin/dpkg" inode=1645 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.686:24367): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.686:24367): proctitle=2F7573722F62696E2F64706B67002D2D7072696E742D666F726569676E2D61726368697465637475726573
+type=SYSCALL msg=audit(1731745826.690:24368): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee263a0 a1=55e09ee26360 a2=55e09ee26388 a3=7f77e1760850 items=2 ppid=12082 pid=12092 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="apt-config" exe="/usr/bin/apt-config" subj=unconfined
+type=EXECVE msg=audit(1731745826.690:24368): argc=4 a0="apt-config" a1="shell" a2="SourceList" a3="Dir::Etc::sourcelist"
+type=CWD msg=audit(1731745826.690:24368): cwd="/"
+type=PATH msg=audit(1731745826.690:24368): item=0 name="/usr/bin/apt-config" inode=1882 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.690:24368): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.690:24368): proctitle=6170742D636F6E666967007368656C6C00536F757263654C697374004469723A3A4574633A3A736F757263656C697374
+type=SYSCALL msg=audit(1731745826.694:24369): arch=c000003e syscall=59 success=yes exit=0 a0=55c8ac3c5b10 a1=55c8ac3cf900 a2=7fff867fd3a0 a3=55c8ac3c4e63 items=2 ppid=12092 pid=12093 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="dpkg" exe="/usr/bin/dpkg" subj=unconfined
+type=EXECVE msg=audit(1731745826.694:24369): argc=2 a0="/usr/bin/dpkg" a1="--print-foreign-architectures"
+type=CWD msg=audit(1731745826.694:24369): cwd="/"
+type=PATH msg=audit(1731745826.694:24369): item=0 name="/usr/bin/dpkg" inode=1645 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.694:24369): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.694:24369): proctitle=2F7573722F62696E2F64706B67002D2D7072696E742D666F726569676E2D61726368697465637475726573
+type=SYSCALL msg=audit(1731745826.694:24370): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee29198 a1=55e09ee290b8 a2=55e09ee29130 a3=1b6 items=2 ppid=12082 pid=12094 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="find" exe="/usr/bin/find" subj=unconfined
+type=EXECVE msg=audit(1731745826.694:24370): argc=10 a0="find" a1="/var/lib/apt/lists/" a2="/etc/apt/sources.list" a3="//var/lib/dpkg/status" a4="-type" a5="f" a6="-newer" a7="/var/lib/update-notifier/hwe-eol" a8="-print" a9="-quit"
+type=CWD msg=audit(1731745826.694:24370): cwd="/"
+type=PATH msg=audit(1731745826.694:24370): item=0 name="/usr/bin/find" inode=1684 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.694:24370): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.694:24370): proctitle=66696E64002F7661722F6C69622F6170742F6C697374732F002F6574632F6170742F736F75726365732E6C697374002F2F7661722F6C69622F64706B672F737461747573002D747970650066002D6E65776572002F7661722F6C69622F7570646174652D6E6F7469666965722F6877652D656F6C002D7072696E74002D717569
+type=SYSCALL msg=audit(1731745826.698:24371): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee265c0 a1=55e09ee26590 a2=55e09ee265a8 a3=7f77e1760850 items=2 ppid=12082 pid=12095 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="id" exe="/usr/bin/id" subj=unconfined
+type=EXECVE msg=audit(1731745826.698:24371): argc=2 a0="id" a1="-u"
+type=CWD msg=audit(1731745826.698:24371): cwd="/"
+type=PATH msg=audit(1731745826.698:24371): item=0 name="/usr/bin/id" inode=1819 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.698:24371): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.698:24371): proctitle=6964002D75
+type=SYSCALL msg=audit(1731745826.698:24372): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee263c0 a1=55e09ee26390 a2=55e09ee263a8 a3=73 items=2 ppid=12096 pid=12097 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="dirname" exe="/usr/bin/dirname" subj=unconfined
+type=EXECVE msg=audit(1731745826.698:24372): argc=2 a0="dirname" a1="/var/lib/update-notifier/hwe-eol"
+type=CWD msg=audit(1731745826.698:24372): cwd="/"
+type=PATH msg=audit(1731745826.698:24372): item=0 name="/usr/bin/dirname" inode=1808 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.698:24372): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.698:24372): proctitle=6469726E616D65002F7661722F6C69622F7570646174652D6E6F7469666965722F6877652D656F6C
+type=SYSCALL msg=audit(1731745826.698:24373): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ee263b8 a1=55e09ee26380 a2=55e09ee263a0 a3=55e09ee28870 items=2 ppid=12082 pid=12096 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="mktemp" exe="/usr/bin/mktemp" subj=unconfined
+type=EXECVE msg=audit(1731745826.698:24373): argc=3 a0="mktemp" a1="-p" a2="/var/lib/update-notifier"
+type=CWD msg=audit(1731745826.698:24373): cwd="/"
+type=PATH msg=audit(1731745826.698:24373): item=0 name="/usr/bin/mktemp" inode=1654 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.698:24373): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.698:24373): proctitle=6D6B74656D70002D70002F7661722F6C69622F7570646174652D6E6F746966696572
+type=SYSCALL msg=audit(1731745826.698:24374): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ead8bd0 a1=55e09ead8ba0 a2=55e09ead8bb8 a3=7f77e1760850 items=2 ppid=12082 pid=12098 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cat" exe="/usr/bin/cat" subj=unconfined
+type=EXECVE msg=audit(1731745826.698:24374): argc=2 a0="cat" a1="/var/lib/update-notifier/hwe-eol"
+type=CWD msg=audit(1731745826.698:24374): cwd="/"
+type=PATH msg=audit(1731745826.698:24374): item=0 name="/usr/bin/cat" inode=1603 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.698:24374): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.698:24374): proctitle=636174002F7661722F6C69622F7570646174652D6E6F7469666965722F6877652D656F6C
+type=SYSCALL msg=audit(1731745826.698:24375): arch=c000003e syscall=59 success=yes exit=0 a0=55e09ead8bf8 a1=55e09ead8bc0 a2=55e09ead8be0 a3=7f77e1760850 items=2 ppid=12082 pid=12099 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="rm" exe="/usr/bin/rm" subj=unconfined
+type=EXECVE msg=audit(1731745826.698:24375): argc=3 a0="rm" a1="-f" a2="/var/lib/update-notifier/tmp.0B9nrCdL2F"
+type=CWD msg=audit(1731745826.698:24375): cwd="/"
+type=PATH msg=audit(1731745826.698:24375): item=0 name="/usr/bin/rm" inode=1658 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.698:24375): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.698:24375): proctitle=726D002D66002F7661722F6C69622F7570646174652D6E6F7469666965722F746D702E3042396E7243644C3246
+type=SYSCALL msg=audit(1731745826.702:24376): arch=c000003e syscall=263 success=yes exit=0 a0=ffffff9c a1=558b19a2c380 a2=0 a3=0 items=2 ppid=12082 pid=12099 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="rm" exe="/usr/bin/rm" subj=unconfined
+type=CWD msg=audit(1731745826.702:24376): cwd="/"
+type=PATH msg=audit(1731745826.702:24376): item=0 name="/var/lib/update-notifier/" inode=80695 dev=08:01 mode=040755 ouid=0 ogid=0 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24376): item=1 name="/var/lib/update-notifier/tmp.0B9nrCdL2F" inode=1593 dev=08:01 mode=0100600 ouid=0 ogid=0 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24376): proctitle=726D002D66002F7661722F6C69622F7570646174652D6E6F7469666965722F746D702E3042396E7243644C3246
+type=SYSCALL msg=audit(1731745826.702:24377): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12100 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="97-overlayroot" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.702:24377): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/97-overlayroot"
+type=CWD msg=audit(1731745826.702:24377): cwd="/"
+type=PATH msg=audit(1731745826.702:24377): item=0 name="/etc/update-motd.d/97-overlayroot" inode=104 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24377): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24377): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24377): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39372D6F7665726C6179726F6F74
+type=SYSCALL msg=audit(1731745826.702:24378): arch=c000003e syscall=59 success=yes exit=0 a0=5555b673b480 a1=5555b673b428 a2=5555b673b468 a3=1b6 items=3 ppid=12101 pid=12102 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="egrep" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.702:24378): argc=4 a0="/bin/sh" a1="/usr/bin/egrep" a2="overlayroot|/media/root-ro|/media/root-rw" a3="/proc/mounts"
+type=CWD msg=audit(1731745826.702:24378): cwd="/"
+type=PATH msg=audit(1731745826.702:24378): item=0 name="/usr/bin/egrep" inode=1686 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24378): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24378): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24378): proctitle=2F62696E2F7368002F7573722F62696E2F6567726570006F7665726C6179726F6F747C2F6D656469612F726F6F742D726F7C2F6D656469612F726F6F742D7277002F70726F632F6D6F756E7473
+type=SYSCALL msg=audit(1731745826.702:24379): arch=c000003e syscall=59 success=yes exit=0 a0=5555b673b408 a1=5555b673b3d8 a2=5555b673b3f0 a3=7ff1ce037850 items=2 ppid=12101 pid=12103 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="sort" exe="/usr/bin/sort" subj=unconfined
+type=EXECVE msg=audit(1731745826.702:24379): argc=2 a0="sort" a1="-r"
+type=CWD msg=audit(1731745826.702:24379): cwd="/"
+type=PATH msg=audit(1731745826.702:24379): item=0 name="/usr/bin/sort" inode=1849 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24379): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24379): proctitle=736F7274002D72
+type=SYSCALL msg=audit(1731745826.702:24380): arch=c000003e syscall=59 success=no exit=-2 a0=5643abbb8c80 a1=5643abbb8c40 a2=5643abbb8c68 a3=5643abbafda2 items=1 ppid=12101 pid=12102 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="egrep" exe="/usr/bin/dash" subj=unconfined
+type=CWD msg=audit(1731745826.702:24380): cwd="/"
+type=PATH msg=audit(1731745826.702:24380): item=0 name="/usr/local/sbin/grep" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24380): proctitle=2F62696E2F7368002F7573722F62696E2F6567726570006F7665726C6179726F6F747C2F6D656469612F726F6F742D726F7C2F6D656469612F726F6F742D7277002F70726F632F6D6F756E7473
+type=SYSCALL msg=audit(1731745826.702:24381): arch=c000003e syscall=59 success=no exit=-2 a0=5643abbb8c80 a1=5643abbb8c40 a2=5643abbb8c68 a3=5643abbafda2 items=1 ppid=12101 pid=12102 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="egrep" exe="/usr/bin/dash" subj=unconfined
+type=CWD msg=audit(1731745826.702:24381): cwd="/"
+type=PATH msg=audit(1731745826.702:24381): item=0 name="/usr/local/bin/grep" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24381): proctitle=2F62696E2F7368002F7573722F62696E2F6567726570006F7665726C6179726F6F747C2F6D656469612F726F6F742D726F7C2F6D656469612F726F6F742D7277002F70726F632F6D6F756E7473
+type=SYSCALL msg=audit(1731745826.702:24382): arch=c000003e syscall=59 success=no exit=-2 a0=5643abbb8c80 a1=5643abbb8c40 a2=5643abbb8c68 a3=5643abbafda2 items=1 ppid=12101 pid=12102 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="egrep" exe="/usr/bin/dash" subj=unconfined
+type=CWD msg=audit(1731745826.702:24382): cwd="/"
+type=PATH msg=audit(1731745826.702:24382): item=0 name="/usr/sbin/grep" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24382): proctitle=2F62696E2F7368002F7573722F62696E2F6567726570006F7665726C6179726F6F747C2F6D656469612F726F6F742D726F7C2F6D656469612F726F6F742D7277002F70726F632F6D6F756E7473
+type=SYSCALL msg=audit(1731745826.702:24383): arch=c000003e syscall=59 success=yes exit=0 a0=5643abbb8c80 a1=5643abbb8c40 a2=5643abbb8c68 a3=5643abbafda2 items=2 ppid=12101 pid=12102 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="grep" exe="/usr/bin/grep" subj=unconfined
+type=EXECVE msg=audit(1731745826.702:24383): argc=4 a0="grep" a1="-E" a2="overlayroot|/media/root-ro|/media/root-rw" a3="/proc/mounts"
+type=CWD msg=audit(1731745826.702:24383): cwd="/"
+type=PATH msg=audit(1731745826.702:24383): item=0 name="/usr/bin/grep" inode=1688 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24383): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24383): proctitle=2F62696E2F7368002F7573722F62696E2F6567726570006F7665726C6179726F6F747C2F6D656469612F726F6F742D726F7C2F6D656469612F726F6F742D7277002F70726F632F6D6F756E7473
+type=SYSCALL msg=audit(1731745826.702:24384): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12104 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="98-fsck-at-rebo" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.702:24384): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/98-fsck-at-reboot"
+type=CWD msg=audit(1731745826.702:24384): cwd="/"
+type=PATH msg=audit(1731745826.702:24384): item=0 name="/etc/update-motd.d/98-fsck-at-reboot" inode=101 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24384): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.702:24384): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.702:24384): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39382D6673636B2D61742D7265626F6F74
+type=SYSCALL msg=audit(1731745826.706:24385): arch=c000003e syscall=59 success=yes exit=0 a0=55a66e808368 a1=55a66e8083c0 a2=55a66e8083d0 a3=55a66d3fbc90 items=3 ppid=12042 pid=12104 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="update-motd-fsc" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.706:24385): argc=2 a0="/bin/sh" a1="/usr/lib/update-notifier/update-motd-fsck-at-reboot"
+type=CWD msg=audit(1731745826.706:24385): cwd="/"
+type=PATH msg=audit(1731745826.706:24385): item=0 name="/usr/lib/update-notifier/update-motd-fsck-at-reboot" inode=14581 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.706:24385): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.706:24385): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.706:24385): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39382D6673636B2D61742D7265626F6F74
+type=SYSCALL msg=audit(1731745826.706:24386): arch=c000003e syscall=59 success=yes exit=0 a0=55deec151630 a1=55deec151600 a2=55deec151618 a3=7fb99f3c1850 items=2 ppid=12104 pid=12105 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="id" exe="/usr/bin/id" subj=unconfined
+type=EXECVE msg=audit(1731745826.706:24386): argc=2 a0="id" a1="-u"
+type=CWD msg=audit(1731745826.706:24386): cwd="/"
+type=PATH msg=audit(1731745826.706:24386): item=0 name="/usr/bin/id" inode=1819 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.706:24386): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.706:24386): proctitle=6964002D75
+type=SYSCALL msg=audit(1731745826.706:24387): arch=c000003e syscall=59 success=yes exit=0 a0=55deec151518 a1=55deec1514d8 a2=55deec151500 a3=73 items=2 ppid=12104 pid=12106 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="stat" exe="/usr/bin/stat" subj=unconfined
+type=EXECVE msg=audit(1731745826.706:24387): argc=4 a0="stat" a1="-c" a2="%Y" a3="/var/lib/update-notifier/fsck-at-reboot"
+type=CWD msg=audit(1731745826.706:24387): cwd="/"
+type=PATH msg=audit(1731745826.706:24387): item=0 name="/usr/bin/stat" inode=1851 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.706:24387): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.706:24387): proctitle=73746174002D63002559002F7661722F6C69622F7570646174652D6E6F7469666965722F6673636B2D61742D7265626F6F74
+type=SYSCALL msg=audit(1731745826.706:24388): arch=c000003e syscall=59 success=yes exit=0 a0=55deec151478 a1=55deec151440 a2=55deec151460 a3=7fb99f3c1850 items=2 ppid=12107 pid=12108 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="awk" exe="/usr/bin/gawk" subj=unconfined
+type=EXECVE msg=audit(1731745826.706:24388): argc=3 a0="awk" a1=7B7072696E742024317D a2="/proc/uptime"
+type=CWD msg=audit(1731745826.706:24388): cwd="/"
+type=PATH msg=audit(1731745826.706:24388): item=0 name="/usr/bin/awk" inode=2132 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.706:24388): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.706:24388): proctitle=61776B007B7072696E742024317D002F70726F632F757074696D65
+type=SYSCALL msg=audit(1731745826.710:24389): arch=c000003e syscall=59 success=yes exit=0 a0=55deec151468 a1=55deec151428 a2=55deec151450 a3=55deec1517e0 items=2 ppid=12104 pid=12107 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="date" exe="/usr/bin/date" subj=unconfined
+type=EXECVE msg=audit(1731745826.710:24389): argc=4 a0="date" a1="-d" a2=6E6F77202D2039373833312E3135207365636F6E6473 a3="+%s"
+type=CWD msg=audit(1731745826.710:24389): cwd="/"
+type=PATH msg=audit(1731745826.710:24389): item=0 name="/usr/bin/date" inode=1608 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.710:24389): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.710:24389): proctitle=64617465002D64006E6F77202D2039373833312E3135207365636F6E6473002B2573
+type=SYSCALL msg=audit(1731745826.710:24390): arch=c000003e syscall=59 success=yes exit=0 a0=55deebd07c10 a1=55deebd07be0 a2=55deebd07bf8 a3=7fb99f3c1850 items=2 ppid=12104 pid=12109 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="date" exe="/usr/bin/date" subj=unconfined
+type=EXECVE msg=audit(1731745826.710:24390): argc=2 a0="date" a1="+%s"
+type=CWD msg=audit(1731745826.710:24390): cwd="/"
+type=PATH msg=audit(1731745826.710:24390): item=0 name="/usr/bin/date" inode=1608 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.710:24390): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.710:24390): proctitle=64617465002B2573
+type=SYSCALL msg=audit(1731745826.710:24391): arch=c000003e syscall=59 success=yes exit=0 a0=55deebd07bc8 a1=55deebd07b98 a2=55deebd07bb0 a3=7fb99f3c1850 items=2 ppid=12104 pid=12110 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="cat" exe="/usr/bin/cat" subj=unconfined
+type=EXECVE msg=audit(1731745826.710:24391): argc=2 a0="cat" a1="/var/lib/update-notifier/fsck-at-reboot"
+type=CWD msg=audit(1731745826.710:24391): cwd="/"
+type=PATH msg=audit(1731745826.710:24391): item=0 name="/usr/bin/cat" inode=1603 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.710:24391): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.710:24391): proctitle=636174002F7661722F6C69622F7570646174652D6E6F7469666965722F6673636B2D61742D7265626F6F74
+type=SYSCALL msg=audit(1731745826.710:24392): arch=c000003e syscall=59 success=yes exit=0 a0=5579c2496d40 a1=5579c24922a0 a2=7ffd9bab58c8 a3=0 items=3 ppid=12042 pid=12111 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="98-reboot-requi" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.710:24392): argc=2 a0="/bin/sh" a1="/etc/update-motd.d/98-reboot-required"
+type=CWD msg=audit(1731745826.710:24392): cwd="/"
+type=PATH msg=audit(1731745826.710:24392): item=0 name="/etc/update-motd.d/98-reboot-required" inode=102 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.710:24392): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.710:24392): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.710:24392): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39382D7265626F6F742D7265717569726564
+type=SYSCALL msg=audit(1731745826.710:24393): arch=c000003e syscall=59 success=yes exit=0 a0=560f05124368 a1=560f051243c0 a2=560f051243d0 a3=560f03822c90 items=3 ppid=12042 pid=12111 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="update-motd-reb" exe="/usr/bin/dash" subj=unconfined
+type=EXECVE msg=audit(1731745826.710:24393): argc=3 a0="/bin/sh" a1="-e" a2="/usr/lib/update-notifier/update-motd-reboot-required"
+type=CWD msg=audit(1731745826.710:24393): cwd="/"
+type=PATH msg=audit(1731745826.710:24393): item=0 name="/usr/lib/update-notifier/update-motd-reboot-required" inode=14583 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.710:24393): item=1 name="/bin/sh" inode=1616 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.710:24393): item=2 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.710:24393): proctitle=2F62696E2F7368002F6574632F7570646174652D6D6F74642E642F39382D7265626F6F742D7265717569726564
+type=SYSCALL msg=audit(1731745826.714:24394): arch=c000003e syscall=82 success=yes exit=0 a0=7f6b7bdac07e a1=7f6b7bdac06c a2=0 a3=56507fc03bb5 items=5 ppid=1019 pid=12039 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=CWD msg=audit(1731745826.714:24394): cwd="/"
+type=PATH msg=audit(1731745826.714:24394): item=0 name="/run/" inode=1 dev=00:1a mode=040755 ouid=0 ogid=0 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.714:24394): item=1 name="/run/" inode=1 dev=00:1a mode=040755 ouid=0 ogid=0 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.714:24394): item=2 name="/run/motd.dynamic.new" inode=1897 dev=00:1a mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.714:24394): item=3 name="/run/motd.dynamic" inode=1844 dev=00:1a mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.714:24394): item=4 name="/run/motd.dynamic" inode=1897 dev=00:1a mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.714:24394): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=USER_START msg=audit(1731745826.714:24395): pid=12039 uid=0 auid=1003 ses=62 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="alice" exe="/usr/sbin/sshd" hostname=127.0.0.1 addr=127.0.0.1 terminal=ssh res=success'
+type=CRED_ACQ msg=audit(1731745826.714:24396): pid=12112 uid=0 auid=1003 ses=62 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="alice" exe="/usr/sbin/sshd" hostname=127.0.0.1 addr=127.0.0.1 terminal=ssh res=success'
+type=SYSCALL msg=audit(1731745826.718:24397): arch=c000003e syscall=92 success=yes exit=0 a0=56507fc3005c a1=3eb a2=5 a3=56507ee11b8d items=1 ppid=1019 pid=12039 auid=1003 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=62 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=CWD msg=audit(1731745826.718:24397): cwd="/"
+type=PATH msg=audit(1731745826.718:24397): item=0 name="/dev/pts/0" inode=3 dev=00:19 mode=020620 ouid=0 ogid=5 rdev=88:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.718:24397): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=USER_LOGIN msg=audit(1731745826.718:24398): pid=12039 uid=0 auid=1003 ses=62 subj=unconfined msg='op=login id=1003 exe="/usr/sbin/sshd" hostname=127.0.0.1 addr=127.0.0.1 terminal=/dev/pts/0 res=success'
+type=SYSCALL msg=audit(1731745826.722:24399): arch=c000003e syscall=59 success=yes exit=0 a0=56507fc13ad0 a1=7ffd5e144e80 a2=56507fc18fb0 a3=8 items=2 ppid=12112 pid=12113 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts0 ses=62 comm="bash" exe="/usr/bin/bash" subj=unconfined
+type=EXECVE msg=audit(1731745826.722:24399): argc=1 a0="-bash"
+type=CWD msg=audit(1731745826.722:24399): cwd="/home/alice"
+type=PATH msg=audit(1731745826.722:24399): item=0 name="/bin/bash" inode=1631 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.722:24399): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.722:24399): proctitle="-bash"
+type=SYSCALL msg=audit(1731745826.722:24400): arch=c000003e syscall=59 success=yes exit=0 a0=55bda0960540 a1=55bda095eb90 a2=55bda0961fe0 a3=8 items=2 ppid=12113 pid=12114 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts0 ses=62 comm="groups" exe="/usr/bin/groups" subj=unconfined
+type=EXECVE msg=audit(1731745826.722:24400): argc=1 a0="groups"
+type=CWD msg=audit(1731745826.722:24400): cwd="/home/alice"
+type=PATH msg=audit(1731745826.722:24400): item=0 name="/usr/bin/groups" inode=1816 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.722:24400): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.722:24400): proctitle="groups"
+type=SYSCALL msg=audit(1731745826.726:24401): arch=c000003e syscall=59 success=yes exit=0 a0=55bda0960da0 a1=55bda095cbe0 a2=55bda0960600 a3=8 items=2 ppid=12113 pid=12115 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts0 ses=62 comm="locale-check" exe="/usr/bin/locale-check" subj=unconfined
+type=EXECVE msg=audit(1731745826.726:24401): argc=2 a0="/usr/bin/locale-check" a1="C.UTF-8"
+type=CWD msg=audit(1731745826.726:24401): cwd="/home/alice"
+type=PATH msg=audit(1731745826.726:24401): item=0 name="/usr/bin/locale-check" inode=1872 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.726:24401): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.726:24401): proctitle=2F7573722F62696E2F6C6F63616C652D636865636B00432E5554462D38
+type=SYSCALL msg=audit(1731745826.726:24402): arch=c000003e syscall=59 success=yes exit=0 a0=55bda09684b0 a1=55bda0945330 a2=55bda0975660 a3=8 items=2 ppid=12113 pid=12116 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts0 ses=62 comm="locale" exe="/usr/bin/locale" subj=unconfined
+type=EXECVE msg=audit(1731745826.726:24402): argc=1 a0="locale"
+type=CWD msg=audit(1731745826.726:24402): cwd="/home/alice"
+type=PATH msg=audit(1731745826.726:24402): item=0 name="/usr/bin/locale" inode=1990 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745826.726:24402): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.726:24402): proctitle="locale"
+type=SYSCALL msg=audit(1731745826.742:24403): arch=c000003e syscall=92 success=yes exit=0 a0=55bda0a709f0 a1=3eb a2=3ec a3=0 items=1 ppid=12112 pid=12113 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts0 ses=62 comm="bash" exe="/usr/bin/bash" subj=unconfined
+type=CWD msg=audit(1731745826.742:24403): cwd="/home/alice"
+type=PATH msg=audit(1731745826.742:24403): item=0 name="/home/alice/.bash_history" inode=2884347 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745826.742:24403): proctitle="-bash"
+type=SYSCALL msg=audit(1731745862.120:24404): arch=c000003e syscall=59 success=yes exit=0 a0=55bda095e270 a1=55bda095e340 a2=55bda0984830 a3=8 items=2 ppid=12113 pid=12124 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts0 ses=62 comm="whoami" exe="/usr/bin/whoami" subj=unconfined
+type=EXECVE msg=audit(1731745862.120:24404): argc=1 a0="whoami"
+type=CWD msg=audit(1731745862.120:24404): cwd="/home/alice"
+type=PATH msg=audit(1731745862.120:24404): item=0 name="/usr/bin/whoami" inode=1869 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731745862.120:24404): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731745862.120:24404): proctitle="whoami"

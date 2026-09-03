@@ -1,0 +1,495 @@
+type=SYSCALL msg=audit(1731744016.737:23949): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c802250 a1=55d48c8024a0 a2=55d48c801830 a3=1b6 items=2 ppid=8607 pid=11660 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="cat" exe="/usr/bin/cat" subj=unconfined
+type=EXECVE msg=audit(1731744016.737:23949): argc=2 a0="cat" a1="/home/alice/Downloads/public-key.rtf"
+type=CWD msg=audit(1731744016.737:23949): cwd="/home/alice"
+type=PATH msg=audit(1731744016.737:23949): item=0 name="/usr/bin/cat" inode=1603 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744016.737:23949): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744016.737:23949): proctitle=636174002F686F6D652F616C6963652F446F776E6C6F6164732F7075626C69632D6B65792E727466
+type=SYSCALL msg=audit(1731744038.587:23950): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c90b5c0 a1=55d48c801ff0 a2=55d48c801830 a3=8 items=2 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=EXECVE msg=audit(1731744038.587:23950): argc=2 a0="vim" a1="/home/alice/.ssh/authorized_keys"
+type=CWD msg=audit(1731744038.587:23950): cwd="/home/alice"
+type=PATH msg=audit(1731744038.587:23950): item=0 name="/usr/bin/vim" inode=10692 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744038.587:23950): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744038.587:23950): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744038.599:23951): arch=c000003e syscall=87 success=yes exit=0 a0=5563ebe21df0 a1=7fff965c51d0 a2=7fff965c51d0 a3=180 items=2 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744038.599:23951): cwd="/home/alice"
+type=PATH msg=audit(1731744038.599:23951): item=0 name="/home/alice/.ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744038.599:23951): item=1 name="/home/alice/.ssh/.authorized_keys.swpx" inode=2886739 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744038.599:23951): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744038.599:23952): arch=c000003e syscall=87 success=yes exit=0 a0=5563ebc02a40 a1=1 a2=7fff965c51d0 a3=180 items=2 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744038.599:23952): cwd="/home/alice"
+type=PATH msg=audit(1731744038.599:23952): item=0 name="/home/alice/.ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744038.599:23952): item=1 name="/home/alice/.ssh/.authorized_keys.swp" inode=2884652 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744038.599:23952): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744038.599:23953): arch=c000003e syscall=90 success=yes exit=0 a0=5563ebc02a40 a1=180 a2=5563eb4a7b80 a3=5563eb4a7b00 items=1 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744038.599:23953): cwd="/home/alice"
+type=PATH msg=audit(1731744038.599:23953): item=0 name="/home/alice/.ssh/.authorized_keys.swp" inode=2884652 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744038.599:23953): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744050.296:23954): arch=c000003e syscall=59 success=yes exit=0 a0=56192ed2af00 a1=56192eced820 a2=56192ed54da0 a3=56192ed2ae60 items=2 ppid=1 pid=11674 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="gce_workload_ce" exe="/usr/bin/gce_workload_cert_refresh" subj=unconfined
+type=EXECVE msg=audit(1731744050.296:23954): argc=1 a0="/usr/bin/gce_workload_cert_refresh"
+type=CWD msg=audit(1731744050.296:23954): cwd="/"
+type=PATH msg=audit(1731744050.296:23954): item=0 name="/usr/bin/gce_workload_cert_refresh" inode=7207 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744050.296:23954): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744050.296:23954): proctitle="/usr/bin/gce_workload_cert_refresh"
+type=SERVICE_START msg=audit(1731744050.308:23955): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+type=SERVICE_STOP msg=audit(1731744050.308:23956): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+type=SYSCALL msg=audit(1731744062.633:23957): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11682 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744062.633:23957): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744062.633:23957): cwd="/"
+type=PATH msg=audit(1731744062.633:23957): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744062.633:23957): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744062.633:23957): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744062.637:23958): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55dacd99f880 a2=1c a3=7fff5958d780 items=0 ppid=1019 pid=11682 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744062.637:23958): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744062.637:23958): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744062.637:23959): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff5958d9f0 a2=10 a3=4 items=0 ppid=1019 pid=11682 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744062.637:23959): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744062.637:23959): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744062.637:23960): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55dacd9a0370 a2=10 a3=4 items=0 ppid=1019 pid=11682 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744062.637:23960): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744062.637:23960): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744127.390:23961): arch=c000003e syscall=93 success=yes exit=0 a0=3 a1=3eb a2=3ec a3=8180 items=1 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.390:23961): cwd="/home/alice"
+type=PATH msg=audit(1731744127.390:23961): item=0 name=(null) inode=2886739 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.390:23961): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.390:23962): arch=c000003e syscall=87 success=yes exit=0 a0=5563ebbef500 a1=7fff965c4db0 a2=7fff965c4db0 a3=8180 items=2 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.390:23962): cwd="/home/alice"
+type=PATH msg=audit(1731744127.390:23962): item=0 name=".ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.390:23962): item=1 name=".ssh/4913" inode=2886739 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.390:23962): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.390:23963): arch=c000003e syscall=87 success=no exit=-2 a0=5563ebe2bdf0 a1=7fff965c3a90 a2=fffffffffffffe98 a3=8180 items=1 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.390:23963): cwd="/home/alice"
+type=PATH msg=audit(1731744127.390:23963): item=0 name=".ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.390:23963): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.390:23964): arch=c000003e syscall=82 success=yes exit=0 a0=5563ebe2cc60 a1=5563ebe2bdf0 a2=fffffffffffffe98 a3=8180 items=4 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.390:23964): cwd="/home/alice"
+type=PATH msg=audit(1731744127.390:23964): item=0 name=".ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.390:23964): item=1 name=".ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.390:23964): item=2 name=".ssh/authorized_keys" inode=2884337 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.390:23964): item=3 name=".ssh/authorized_keys~" inode=2884337 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.390:23964): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.394:23965): arch=c000003e syscall=91 success=yes exit=0 a0=3 a1=8180 a2=7fff965c4ac0 a3=5563ebe2a488 items=1 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.394:23965): cwd="/home/alice"
+type=PATH msg=audit(1731744127.394:23965): item=0 name=(null) inode=2886739 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.394:23965): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.394:23966): arch=c000003e syscall=188 success=yes exit=0 a0=5563ebe2cc60 a1=7fb77e7b00b3 a2=5563ebe389c0 a3=1c items=1 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.394:23966): cwd="/home/alice"
+type=PATH msg=audit(1731744127.394:23966): item=0 name=".ssh/authorized_keys" inode=2886739 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.394:23966): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.394:23967): arch=c000003e syscall=87 success=yes exit=0 a0=5563ebe2bdf0 a1=5563ebc173f0 a2=5563eb418ee5 a3=20 items=2 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.394:23967): cwd="/home/alice"
+type=PATH msg=audit(1731744127.394:23967): item=0 name=".ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.394:23967): item=1 name=".ssh/authorized_keys~" inode=2884337 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.394:23967): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.394:23968): arch=c000003e syscall=87 success=yes exit=0 a0=5563ebe3a330 a1=7fff965c3d60 a2=7fff965c3d60 a3=5563eb42c0a2 items=2 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.394:23968): cwd="/home/alice"
+type=PATH msg=audit(1731744127.394:23968): item=0 name="/home/alice/" inode=2884327 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.394:23968): item=1 name="/home/alice/.viminfo" inode=2884354 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.394:23968): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.394:23969): arch=c000003e syscall=82 success=yes exit=0 a0=5563ebe4c690 a1=5563ebe3a330 a2=7fff965c3d60 a3=5563eb42c0a2 items=4 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.394:23969): cwd="/home/alice"
+type=PATH msg=audit(1731744127.394:23969): item=0 name="/home/alice/" inode=2884327 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.394:23969): item=1 name="/home/alice/" inode=2884327 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.394:23969): item=2 name="/home/alice/.viminfo.tmp" inode=2884337 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.394:23969): item=3 name="/home/alice/.viminfo" inode=2884337 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.394:23969): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.394:23970): arch=c000003e syscall=87 success=yes exit=0 a0=5563ebc02a70 a1=1 a2=1d a3=1 items=2 ppid=8607 pid=11671 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="vim" exe="/usr/bin/vim.basic" subj=unconfined
+type=CWD msg=audit(1731744127.394:23970): cwd="/home/alice"
+type=PATH msg=audit(1731744127.394:23970): item=0 name="/home/alice/.ssh/" inode=2884328 dev=08:01 mode=040700 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.394:23970): item=1 name="/home/alice/.ssh/.authorized_keys.swp" inode=2884652 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.394:23970): proctitle=76696D002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744127.398:23971): arch=c000003e syscall=59 success=yes exit=0 a0=5591156c2190 a1=5591156ba110 a2=5591156be8f0 a3=0 items=2 ppid=11691 pid=11692 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="tumblerd" exe="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd" subj=unconfined
+type=EXECVE msg=audit(1731744127.398:23971): argc=1 a0="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd"
+type=CWD msg=audit(1731744127.398:23971): cwd="/home/alice"
+type=PATH msg=audit(1731744127.398:23971): item=0 name="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd" inode=1068801 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.398:23971): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.398:23971): proctitle="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd"
+type=SYSCALL msg=audit(1731744127.398:23972): arch=c000003e syscall=82 success=yes exit=0 a0=55d90e14f820 a1=55d90e139210 a2=55d90e14f86f a3=7f5d95b2f900 items=4 ppid=1 pid=7443 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="systemd" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.398:23972): cwd="/"
+type=PATH msg=audit(1731744127.398:23972): item=0 name="/run/user/1003/systemd/units/" inode=10 dev=00:35 mode=040755 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.398:23972): item=1 name="/run/user/1003/systemd/units/" inode=10 dev=00:35 mode=040755 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.398:23972): item=2 name="/run/user/1003/systemd/units/.#invocation:tracker-store.service95778385e2ffae6b" inode=80 dev=00:35 mode=0120777 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.398:23972): item=3 name="/run/user/1003/systemd/units/invocation:tracker-store.service" inode=80 dev=00:35 mode=0120777 ouid=1003 ogid=1004 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.398:23972): proctitle="(systemd)"
+type=SYSCALL msg=audit(1731744127.402:23973): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e133630 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23973): cwd="/"
+type=PATH msg=audit(1731744127.402:23973): item=0 name="/sys/fs/cgroup/cpu/user.slice/cgroup.procs" inode=128 dev=00:23 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23973): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23974): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e126a60 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23974): cwd="/"
+type=PATH msg=audit(1731744127.402:23974): item=0 name="/sys/fs/cgroup/cpu/cgroup.procs" inode=2 dev=00:23 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23974): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23975): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e133630 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23975): cwd="/"
+type=PATH msg=audit(1731744127.402:23975): item=0 name="/sys/fs/cgroup/blkio/user.slice/cgroup.procs" inode=94 dev=00:27 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23975): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23976): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e126a60 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23976): cwd="/"
+type=PATH msg=audit(1731744127.402:23976): item=0 name="/sys/fs/cgroup/blkio/cgroup.procs" inode=2 dev=00:27 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23976): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23977): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e14f820 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23977): cwd="/"
+type=PATH msg=audit(1731744127.402:23977): item=0 name="/sys/fs/cgroup/memory/user.slice/user-1003.slice/user@1003.service/cgroup.procs" inode=11492 dev=00:22 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23977): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23978): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e12c1a0 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23978): cwd="/"
+type=PATH msg=audit(1731744127.402:23978): item=0 name="/sys/fs/cgroup/memory/user.slice/user-1003.slice/cgroup.procs" inode=11428 dev=00:22 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23978): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23979): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e133630 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23979): cwd="/"
+type=PATH msg=audit(1731744127.402:23979): item=0 name="/sys/fs/cgroup/memory/user.slice/cgroup.procs" inode=196 dev=00:22 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23979): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23980): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e126a60 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23980): cwd="/"
+type=PATH msg=audit(1731744127.402:23980): item=0 name="/sys/fs/cgroup/memory/cgroup.procs" inode=2 dev=00:22 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23980): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23981): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e133630 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23981): cwd="/"
+type=PATH msg=audit(1731744127.402:23981): item=0 name="/sys/fs/cgroup/devices/user.slice/cgroup.procs" inode=52 dev=00:26 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23981): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23982): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e126a60 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23982): cwd="/"
+type=PATH msg=audit(1731744127.402:23982): item=0 name="/sys/fs/cgroup/devices/cgroup.procs" inode=2 dev=00:26 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23982): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23983): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e14f820 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23983): cwd="/"
+type=PATH msg=audit(1731744127.402:23983): item=0 name="/sys/fs/cgroup/pids/user.slice/user-1003.slice/user@1003.service/cgroup.procs" inode=2873 dev=00:29 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23983): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23984): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e12c1a0 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23984): cwd="/"
+type=PATH msg=audit(1731744127.402:23984): item=0 name="/sys/fs/cgroup/pids/user.slice/user-1003.slice/cgroup.procs" inode=2857 dev=00:29 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23984): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23985): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e133630 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23985): cwd="/"
+type=PATH msg=audit(1731744127.402:23985): item=0 name="/sys/fs/cgroup/pids/user.slice/cgroup.procs" inode=49 dev=00:29 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23985): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23986): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=55d90e126a60 a2=80101 a3=0 items=1 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="(er-store)" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744127.402:23986): cwd="/"
+type=PATH msg=audit(1731744127.402:23986): item=0 name="/sys/fs/cgroup/pids/cgroup.procs" inode=2 dev=00:29 mode=0100644 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23986): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.402:23987): arch=c000003e syscall=59 success=yes exit=0 a0=55d90e131780 a1=55d90e1317f0 a2=55d90e131410 a3=55d90e12f2c0 items=2 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="tracker-store" exe="/usr/libexec/tracker-store" subj=unconfined
+type=EXECVE msg=audit(1731744127.402:23987): argc=1 a0="/usr/libexec/tracker-store"
+type=CWD msg=audit(1731744127.402:23987): cwd="/home/alice"
+type=PATH msg=audit(1731744127.402:23987): item=0 name="/usr/libexec/tracker-store" inode=78727 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744127.402:23987): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.402:23987): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744127.478:23988): arch=c000003e syscall=87 success=no exit=-2 a0=55e27bb9cda0 a1=1 a2=0 a3=55e27b8e9d78 items=1 ppid=7443 pid=11692 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="pool-tumblerd" exe="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd" subj=unconfined
+type=CWD msg=audit(1731744127.478:23988): cwd="/home/alice"
+type=PATH msg=audit(1731744127.478:23988): item=0 name="/home/alice/.cache/thumbnails/large/8ab3d95aa5595824f590db33bb6449cd.png" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.478:23988): proctitle="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd"
+type=SYSCALL msg=audit(1731744127.478:23989): arch=c000003e syscall=87 success=no exit=-2 a0=55e27bb9cda0 a1=1 a2=0 a3=55e27b8e9d78 items=1 ppid=7443 pid=11692 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="pool-tumblerd" exe="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd" subj=unconfined
+type=CWD msg=audit(1731744127.478:23989): cwd="/home/alice"
+type=PATH msg=audit(1731744127.478:23989): item=0 name="/home/alice/.cache/thumbnails/normal/8ab3d95aa5595824f590db33bb6449cd.png" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.478:23989): proctitle="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd"
+type=SYSCALL msg=audit(1731744127.710:23990): arch=c000003e syscall=87 success=no exit=-2 a0=7fdf700013a0 a1=7fdf70002400 a2=49 a3=55e27b8e9d78 items=1 ppid=7443 pid=11692 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="pool-tumblerd" exe="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd" subj=unconfined
+type=CWD msg=audit(1731744127.710:23990): cwd="/home/alice"
+type=PATH msg=audit(1731744127.710:23990): item=0 name="/home/alice/.cache/thumbnails/large/8ab3d95aa5595824f590db33bb6449cd.png" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.710:23990): proctitle="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd"
+type=SYSCALL msg=audit(1731744127.710:23991): arch=c000003e syscall=87 success=no exit=-2 a0=7fdf700013a0 a1=7fdf70002400 a2=4a a3=55e27b8e9d78 items=1 ppid=7443 pid=11692 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="pool-tumblerd" exe="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd" subj=unconfined
+type=CWD msg=audit(1731744127.710:23991): cwd="/home/alice"
+type=PATH msg=audit(1731744127.710:23991): item=0 name="/home/alice/.cache/thumbnails/normal/8ab3d95aa5595824f590db33bb6449cd.png" nametype=UNKNOWN cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744127.710:23991): proctitle="/usr/lib/x86_64-linux-gnu/tumbler-1/tumblerd"
+type=SYSCALL msg=audit(1731744158.060:23992): arch=c000003e syscall=87 success=yes exit=0 a0=55a235fe7000 a1=1 a2=55a235fea160 a3=2a items=2 ppid=7443 pid=11693 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="tracker-store" exe="/usr/libexec/tracker-store" subj=unconfined
+type=CWD msg=audit(1731744158.060:23992): cwd="/home/alice"
+type=PATH msg=audit(1731744158.060:23992): item=0 name="/home/alice/.local/share/tracker/data/" inode=2884432 dev=08:01 mode=040755 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744158.060:23992): item=1 name="/home/alice/.local/share/tracker/data/.meta.isrunning" inode=2884354 dev=08:01 mode=0100660 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744158.060:23992): proctitle="(er-store)"
+type=SYSCALL msg=audit(1731744158.064:23993): arch=c000003e syscall=87 success=yes exit=0 a0=55d90e139210 a1=55d90e100630 a2=55d90e12a500 a3=4 items=2 ppid=1 pid=7443 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=(none) ses=58 comm="systemd" exe="/usr/lib/systemd/systemd" subj=unconfined
+type=CWD msg=audit(1731744158.064:23993): cwd="/"
+type=PATH msg=audit(1731744158.064:23993): item=0 name="/run/user/1003/systemd/units/" inode=10 dev=00:35 mode=040755 ouid=1003 ogid=1004 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744158.064:23993): item=1 name="/run/user/1003/systemd/units/invocation:tracker-store.service" inode=80 dev=00:35 mode=0120777 ouid=1003 ogid=1004 rdev=00:00 nametype=DELETE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744158.064:23993): proctitle="(systemd)"
+type=SYSCALL msg=audit(1731744186.546:23994): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11718 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744186.546:23994): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744186.546:23994): cwd="/"
+type=PATH msg=audit(1731744186.546:23994): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744186.546:23994): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744186.546:23994): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744186.550:23995): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55616d8fb880 a2=1c a3=7ffe184594f0 items=0 ppid=1019 pid=11718 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744186.550:23995): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744186.550:23995): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744186.550:23996): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffe18459760 a2=10 a3=4 items=0 ppid=1019 pid=11718 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744186.550:23996): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744186.550:23996): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744186.550:23997): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55616d8fc370 a2=10 a3=4 items=0 ppid=1019 pid=11718 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744186.550:23997): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744186.550:23997): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744186.802:23998): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11719 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744186.802:23998): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744186.802:23998): cwd="/"
+type=PATH msg=audit(1731744186.802:23998): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744186.802:23998): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744186.802:23998): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744186.806:23999): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=556c2841c880 a2=1c a3=7fff171d8300 items=0 ppid=1019 pid=11719 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744186.806:23999): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744186.806:23999): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744186.806:24000): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff171d8570 a2=10 a3=4 items=0 ppid=1019 pid=11719 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744186.806:24000): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744186.806:24000): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744186.806:24001): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=556c2841d370 a2=10 a3=4 items=0 ppid=1019 pid=11719 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744186.806:24001): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744186.806:24001): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744193.051:24002): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11722 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744193.051:24002): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744193.051:24002): cwd="/"
+type=PATH msg=audit(1731744193.051:24002): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744193.051:24002): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744193.051:24002): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744193.051:24003): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5609d92d5880 a2=1c a3=7ffd4a8b98f0 items=0 ppid=1019 pid=11722 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744193.051:24003): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744193.051:24003): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744193.051:24004): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffd4a8b9b60 a2=10 a3=4 items=0 ppid=1019 pid=11722 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744193.051:24004): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744193.051:24004): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744193.051:24005): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5609d92d6370 a2=10 a3=4 items=0 ppid=1019 pid=11722 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744193.051:24005): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744193.051:24005): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744199.291:24006): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11723 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744199.291:24006): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744199.291:24006): cwd="/"
+type=PATH msg=audit(1731744199.291:24006): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744199.291:24006): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744199.291:24006): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744199.295:24007): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55a5d88ba880 a2=1c a3=7ffed676acb0 items=0 ppid=1019 pid=11723 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744199.295:24007): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744199.295:24007): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744199.295:24008): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffed676af20 a2=10 a3=4 items=0 ppid=1019 pid=11723 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744199.295:24008): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744199.295:24008): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744199.295:24009): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55a5d88bb370 a2=10 a3=4 items=0 ppid=1019 pid=11723 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744199.295:24009): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744199.295:24009): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744205.535:24010): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11724 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744205.535:24010): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744205.535:24010): cwd="/"
+type=PATH msg=audit(1731744205.535:24010): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744205.535:24010): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744205.535:24010): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744205.539:24011): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=56345463c880 a2=1c a3=7ffce0755570 items=0 ppid=1019 pid=11724 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744205.539:24011): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744205.539:24011): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744205.539:24012): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffce07557e0 a2=10 a3=4 items=0 ppid=1019 pid=11724 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744205.539:24012): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744205.539:24012): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744205.539:24013): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=56345463d370 a2=10 a3=4 items=0 ppid=1019 pid=11724 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744205.539:24013): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744205.539:24013): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744211.816:24014): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11727 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744211.816:24014): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744211.816:24014): cwd="/"
+type=PATH msg=audit(1731744211.816:24014): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744211.816:24014): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744211.816:24014): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744211.820:24015): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55a4d907b880 a2=1c a3=7fff8f0fb410 items=0 ppid=1019 pid=11727 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744211.820:24015): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744211.820:24015): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744211.820:24016): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff8f0fb680 a2=10 a3=4 items=0 ppid=1019 pid=11727 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744211.820:24016): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744211.820:24016): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744211.820:24017): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55a4d907c370 a2=10 a3=4 items=0 ppid=1019 pid=11727 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744211.820:24017): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744211.820:24017): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744218.060:24018): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11728 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744218.060:24018): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744218.060:24018): cwd="/"
+type=PATH msg=audit(1731744218.060:24018): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744218.060:24018): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744218.060:24018): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744218.064:24019): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55dce5a22880 a2=1c a3=7ffd28653b10 items=0 ppid=1019 pid=11728 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744218.064:24019): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744218.064:24019): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744218.064:24020): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffd28653d80 a2=10 a3=4 items=0 ppid=1019 pid=11728 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744218.064:24020): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744218.064:24020): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744218.064:24021): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55dce5a23370 a2=10 a3=4 items=0 ppid=1019 pid=11728 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744218.064:24021): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744218.064:24021): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744224.313:24022): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11731 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744224.313:24022): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744224.313:24022): cwd="/"
+type=PATH msg=audit(1731744224.313:24022): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744224.313:24022): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744224.313:24022): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744224.317:24023): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55fc56d2c880 a2=1c a3=7ffd9737a520 items=0 ppid=1019 pid=11731 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744224.317:24023): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744224.317:24023): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744224.317:24024): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffd9737a790 a2=10 a3=4 items=0 ppid=1019 pid=11731 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744224.317:24024): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744224.317:24024): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744224.317:24025): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55fc56d2d370 a2=10 a3=4 items=0 ppid=1019 pid=11731 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744224.317:24025): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744224.317:24025): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744230.557:24026): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11732 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744230.557:24026): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744230.557:24026): cwd="/"
+type=PATH msg=audit(1731744230.557:24026): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744230.557:24026): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744230.557:24026): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744230.561:24027): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5584bf1a1880 a2=1c a3=7ffc2a07a4f0 items=0 ppid=1019 pid=11732 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744230.561:24027): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744230.561:24027): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744230.561:24028): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffc2a07a760 a2=10 a3=4 items=0 ppid=1019 pid=11732 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744230.561:24028): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744230.561:24028): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744230.561:24029): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5584bf1a2370 a2=10 a3=4 items=0 ppid=1019 pid=11732 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744230.561:24029): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744230.561:24029): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744236.802:24030): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744236.802:24030): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744236.802:24030): cwd="/"
+type=PATH msg=audit(1731744236.802:24030): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744236.802:24030): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744236.802:24030): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744236.806:24031): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55dd95f02880 a2=1c a3=7ffc62af0790 items=0 ppid=1019 pid=11734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744236.806:24031): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744236.806:24031): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744236.806:24032): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffc62af0a00 a2=10 a3=4 items=0 ppid=1019 pid=11734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744236.806:24032): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744236.806:24032): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744236.806:24033): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55dd95f03370 a2=10 a3=4 items=0 ppid=1019 pid=11734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744236.806:24033): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744236.806:24033): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744243.050:24034): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11735 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744243.050:24034): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744243.050:24034): cwd="/"
+type=PATH msg=audit(1731744243.050:24034): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744243.050:24034): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744243.050:24034): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744243.054:24035): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5645908b6880 a2=1c a3=7fff590aaa30 items=0 ppid=1019 pid=11735 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744243.054:24035): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744243.054:24035): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744243.054:24036): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff590aaca0 a2=10 a3=4 items=0 ppid=1019 pid=11735 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744243.054:24036): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744243.054:24036): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744243.054:24037): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5645908b7370 a2=10 a3=4 items=0 ppid=1019 pid=11735 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744243.054:24037): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744243.054:24037): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744249.291:24038): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11737 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744249.291:24038): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744249.291:24038): cwd="/"
+type=PATH msg=audit(1731744249.291:24038): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744249.291:24038): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744249.291:24038): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744249.295:24039): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5642338bc880 a2=1c a3=7fff4e260a50 items=0 ppid=1019 pid=11737 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744249.295:24039): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744249.295:24039): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744249.295:24040): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff4e260cc0 a2=10 a3=4 items=0 ppid=1019 pid=11737 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744249.295:24040): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744249.295:24040): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744249.295:24041): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5642338bd370 a2=10 a3=4 items=0 ppid=1019 pid=11737 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744249.295:24041): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744249.295:24041): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744256.087:24042): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11739 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744256.087:24042): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744256.087:24042): cwd="/"
+type=PATH msg=audit(1731744256.087:24042): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744256.087:24042): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744256.087:24042): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744256.091:24043): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55a23b4e6880 a2=1c a3=7fffaef0cef0 items=0 ppid=1019 pid=11739 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744256.091:24043): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744256.091:24043): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744256.091:24044): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fffaef0d160 a2=10 a3=4 items=0 ppid=1019 pid=11739 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744256.091:24044): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744256.091:24044): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744256.091:24045): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55a23b4e7370 a2=10 a3=4 items=0 ppid=1019 pid=11739 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744256.091:24045): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744256.091:24045): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744262.332:24046): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11740 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744262.332:24046): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744262.332:24046): cwd="/"
+type=PATH msg=audit(1731744262.332:24046): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744262.332:24046): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744262.332:24046): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744262.336:24047): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55b47d6a1880 a2=1c a3=7fff6969e340 items=0 ppid=1019 pid=11740 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744262.336:24047): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744262.336:24047): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744262.336:24048): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff6969e5b0 a2=10 a3=4 items=0 ppid=1019 pid=11740 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744262.336:24048): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744262.336:24048): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744262.336:24049): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55b47d6a2370 a2=10 a3=4 items=0 ppid=1019 pid=11740 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744262.336:24049): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744262.336:24049): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744268.564:24050): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11742 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744268.564:24050): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744268.564:24050): cwd="/"
+type=PATH msg=audit(1731744268.564:24050): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744268.564:24050): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744268.564:24050): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744268.568:24051): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=564e32b61880 a2=1c a3=7ffd5717b500 items=0 ppid=1019 pid=11742 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744268.568:24051): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744268.568:24051): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744268.568:24052): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffd5717b770 a2=10 a3=4 items=0 ppid=1019 pid=11742 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744268.568:24052): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744268.568:24052): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744268.568:24053): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=564e32b62370 a2=10 a3=4 items=0 ppid=1019 pid=11742 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744268.568:24053): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744268.568:24053): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744274.817:24054): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11744 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744274.817:24054): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744274.817:24054): cwd="/"
+type=PATH msg=audit(1731744274.817:24054): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744274.817:24054): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744274.817:24054): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744274.821:24055): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=557b8bd3a880 a2=1c a3=7ffcbd3bc0c0 items=0 ppid=1019 pid=11744 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744274.821:24055): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744274.821:24055): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744274.821:24056): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffcbd3bc330 a2=10 a3=4 items=0 ppid=1019 pid=11744 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744274.821:24056): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744274.821:24056): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744274.821:24057): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=557b8bd3b370 a2=10 a3=4 items=0 ppid=1019 pid=11744 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744274.821:24057): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744274.821:24057): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744282.585:24058): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11747 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744282.585:24058): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744282.585:24058): cwd="/"
+type=PATH msg=audit(1731744282.585:24058): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744282.585:24058): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744282.585:24058): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744282.589:24059): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=559d5fee3880 a2=1c a3=7fff397c5500 items=0 ppid=1019 pid=11747 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744282.589:24059): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744282.589:24059): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744282.589:24060): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff397c5770 a2=10 a3=4 items=0 ppid=1019 pid=11747 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744282.589:24060): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744282.589:24060): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744282.589:24061): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=559d5fee4370 a2=10 a3=4 items=0 ppid=1019 pid=11747 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744282.589:24061): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744282.589:24061): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744287.858:24062): arch=c000003e syscall=59 success=yes exit=0 a0=55d48c8d1270 a1=55d48c911dd0 a2=55d48c801830 a3=8 items=2 ppid=8607 pid=11748 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="chmod" exe="/usr/bin/chmod" subj=unconfined
+type=EXECVE msg=audit(1731744287.858:24062): argc=3 a0="chmod" a1="600" a2="/home/alice/.ssh/authorized_keys"
+type=CWD msg=audit(1731744287.858:24062): cwd="/home/alice"
+type=PATH msg=audit(1731744287.858:24062): item=0 name="/usr/bin/chmod" inode=1605 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744287.858:24062): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744287.858:24062): proctitle=63686D6F6400363030002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744287.858:24063): arch=c000003e syscall=268 success=yes exit=0 a0=ffffff9c a1=5600d9b171b0 a2=180 a3=fff items=1 ppid=8607 pid=11748 auid=1003 uid=1003 gid=1004 euid=1003 suid=1003 fsuid=1003 egid=1004 sgid=1004 fsgid=1004 tty=pts1 ses=60 comm="chmod" exe="/usr/bin/chmod" subj=unconfined
+type=CWD msg=audit(1731744287.858:24063): cwd="/home/alice"
+type=PATH msg=audit(1731744287.858:24063): item=0 name="/home/alice/.ssh/authorized_keys" inode=2886739 dev=08:01 mode=0100600 ouid=1003 ogid=1004 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744287.858:24063): proctitle=63686D6F6400363030002F686F6D652F616C6963652F2E7373682F617574686F72697A65645F6B657973
+type=SYSCALL msg=audit(1731744289.354:24064): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11749 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744289.354:24064): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744289.354:24064): cwd="/"
+type=PATH msg=audit(1731744289.354:24064): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744289.354:24064): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744289.354:24064): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744289.358:24065): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55f00b7df880 a2=1c a3=7ffd95dbd4f0 items=0 ppid=1019 pid=11749 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744289.358:24065): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744289.358:24065): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744289.358:24066): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7ffd95dbd760 a2=10 a3=4 items=0 ppid=1019 pid=11749 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744289.358:24066): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744289.358:24066): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744289.358:24067): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=55f00b7e0370 a2=10 a3=4 items=0 ppid=1019 pid=11749 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744289.358:24067): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744289.358:24067): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744295.642:24068): arch=c000003e syscall=59 success=yes exit=0 a0=5639c99a8980 a1=5639c99d0ab0 a2=5639c99a89c0 a3=5639c95d9788 items=2 ppid=1019 pid=11751 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=EXECVE msg=audit(1731744295.642:24068): argc=3 a0="/usr/sbin/sshd" a1="-D" a2="-R"
+type=CWD msg=audit(1731744295.642:24068): cwd="/"
+type=PATH msg=audit(1731744295.642:24068): item=0 name="/usr/sbin/sshd" inode=2879 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1731744295.642:24068): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=4742 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PROCTITLE msg=audit(1731744295.642:24068): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744295.646:24069): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5633ba30f880 a2=1c a3=7fff7c3b8420 items=0 ppid=1019 pid=11751 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744295.646:24069): saddr=0A000016000000000000000000000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744295.646:24069): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744295.646:24070): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=7fff7c3b8690 a2=10 a3=4 items=0 ppid=1019 pid=11751 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744295.646:24070): saddr=00000000000000000000000000000000
+type=PROCTITLE msg=audit(1731744295.646:24070): proctitle=2F7573722F7362696E2F73736864002D44002D52
+type=SYSCALL msg=audit(1731744295.646:24071): arch=c000003e syscall=42 success=yes exit=0 a0=4 a1=5633ba310370 a2=10 a3=4 items=0 ppid=1019 pid=11751 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined
+type=SOCKADDR msg=audit(1731744295.646:24071): saddr=02000016000000000000000000000000
+type=PROCTITLE msg=audit(1731744295.646:24071): proctitle=2F7573722F7362696E2F73736864002D44002D52

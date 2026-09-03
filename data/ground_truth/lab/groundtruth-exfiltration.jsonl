@@ -1,0 +1,5 @@
+{"exfiltration-scenario1": [{"timestamp": ["2025-05-01 08:46"], "exfiltrated data": ["/home/alice/Documents/alice_conf", "alice_conf"], "full file paths": []}]}
+{"exfiltration-scenario2": [{"timestamp": ["2024-10-28 07:21", "2024-10-28 07:24", "2024-10-28 07:25", "2024-10-28 07:28"], "exfiltrated data": ["/home/eve/eve-data", "eve-data"], "full file paths": ["/home/eve/eve-data"]}]}
+{"exfiltration-scenario3": [{"timestamp": ["2024-10-28 11:54"], "exfiltrated data": ["/home/eve/eve-data", "eve-data"], "full file paths": ["/home/eve/eve-data"]}]}
+{"exfiltration-scenario4": [{"timestamp": ["2025-05-31 17:52"], "exfiltrated data": ["/home/alice/Documents/notes.txt", "notes.txt"], "full file paths": ["/home/alice/Documents/notes.txt"]}]}
+{"exfiltration-scenario5": [{"timestamp": ["2024-11-27 15:08", "2024-11-27 15:06"], "exfiltrated data": ["C:\\Users\\bob\\Documents\\notes.txt", "C:\\Users\\bob\\notes.txt", "notes.txt"], "full file paths": ["C:\\Users\\bob\\Documents\\notes.txt"]}]}

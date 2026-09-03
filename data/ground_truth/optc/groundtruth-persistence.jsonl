@@ -1,0 +1,4 @@
+{"persistence-scenario1": [{"timestamp": ["2019-09-23 11:39:19"], "mechanism_name": ["Boot or Logon Autostart Execution"]}]}
+{"persistence-scenario2": [{"timestamp": ["2019-09-24 11:33:00", "2019-09-24 11:33:01", "2019-09-24 11:33:02", "2019-09-24 11:33:03"], "mechanism_name": ["Event Triggered Execution", "Scheduled Task/Job"]}]}
+{"persistence-scenario3": [{"timestamp": ["2019-09-25 10:47:13", "2019-09-25 10:47:14"], "mechanism_name": ["Boot or Logon Autostart Execution"]}]}
+{"persistence-scenario4": [{"timestamp": ["2019-09-24 13:10:02"], "mechanism_name": ["External Remote Services"]}]}
